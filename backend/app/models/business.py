@@ -1,5 +1,5 @@
 from datetime import datetime
-
+from sqlalchemy.orm import relationship
 from sqlalchemy import Boolean, DateTime, Integer, String, Text
 from sqlalchemy.orm import Mapped, mapped_column
 
@@ -42,3 +42,8 @@ class Business(Base):
         default=datetime.utcnow,
         nullable=False
     )
+    opportunities = relationship(
+    "Opportunity",
+    back_populates="business",
+    cascade="all, delete-orphan"
+)

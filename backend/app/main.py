@@ -1,7 +1,7 @@
 from fastapi import FastAPI, Depends
 from sqlalchemy import text
 from sqlalchemy.orm import Session
-
+from app.models.opportunity import Opportunity
 from app.database.connection import engine, Base, get_db
 from app.models.business import Business
 from app.routes.businesses import router as businesses_router
