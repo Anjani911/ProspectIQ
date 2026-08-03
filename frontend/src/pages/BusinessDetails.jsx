@@ -124,14 +124,16 @@ function BusinessDetails() {
             </p>
           </div>
 
-          <button
-            onClick={analyzeWebsite}
-            disabled={analyzing}
+         <button
+  onClick={analyzeWebsite}
+  disabled={analyzing || !business.website_url}
             className="rounded-lg bg-blue-600 px-5 py-3 font-medium text-white hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-60"
           >
-            {analyzing
-              ? "Analyzing..."
-              : "Analyze Website"}
+            {!business.website_url
+  ? "No Website"
+  : analyzing
+  ? "Analyzing..."
+  : "Analyze Website"}
           </button>
         </div>
 
@@ -150,7 +152,18 @@ function BusinessDetails() {
             </p>
 
             <p className="mt-2 break-all font-medium text-slate-900">
-              {business.website_url || "No website"}
+              {business.website_url ? (
+  <a
+    href={business.website_url}
+    target="_blank"
+    rel="noreferrer"
+    className="text-blue-600 underline"
+  >
+    {business.website_url}
+  </a>
+) : (
+  "No website"
+)}
             </p>
           </div>
 
