@@ -1,6 +1,11 @@
 import { useEffect, useState } from "react";
-import Discover from "./pages/Discover";
+import Discover from "./pages/discover";
+import BusinessDetails from "./pages/BusinessDetails";
+import AddBusiness from "./pages/AddBusiness";
+import Opportunities from "./pages/Opportunities";
+
 import axios from "axios";
+
 import {
   BrowserRouter,
   Routes,
@@ -8,15 +13,48 @@ import {
   Link,
 } from "react-router-dom";
 
-import BusinessDetails from "./pages/BusinessDetails";
-import AddBusiness from "./pages/AddBusiness";
-import Opportunities from "./pages/Opportunities";
+import {
+  ResponsiveContainer,
+  PieChart,
+  Pie,
+  Cell,
+  Tooltip,
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+} from "recharts";
 
 const API_URL = "http://127.0.0.1:8000";
 
+const COLORS = [
+  "#2563eb",
+  "#16a34a",
+  "#f59e0b",
+  "#ef4444",
+  "#8b5cf6",
+  "#06b6d4",
+];
+
+
 function Dashboard() {
-  const [summary, setSummary] = useState(null);
+   const [summary, setSummary] = useState(null);
   const [businesses, setBusinesses] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const websiteData = [
+    {
+      name: "Has Website",
+      value: summary?.businesses_with_websites || 0,
+    },
+    {
+      name: "No Website",
+      value:
+        (summary?.total_businesses || 0) -
+        (summary?.businesses_with_websites || 0),
+    },
+  ];
+
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
@@ -24,29 +62,32 @@ function Dashboard() {
     loadDashboard();
   }, []);
 
-  const loadDashboard = async () => {
-    try {
-      setError("");
+ const loadDashboard = async () => {
+  try {
+    setError("");
 
-      const [summaryResponse, businessesResponse] =
-        await Promise.all([
-          axios.get(
-            `${API_URL}/businesses/dashboard/summary`
-          ),
-          axios.get(`${API_URL}/businesses/`),
-        ]);
+    const [
+      summaryResponse,
+      businessesResponse,
+      categoriesResponse,
+    ] = await Promise.all([
+      axios.get(`${API_URL}/businesses/dashboard/summary`),
+      axios.get(`${API_URL}/businesses/`),
+      axios.get(`${API_URL}/analytics/categories`),
+    ]);
 
-      setSummary(summaryResponse.data);
-      setBusinesses(businessesResponse.data);
-    } catch (err) {
-      console.error("Failed to load dashboard:", err);
-      setError(
-        "Could not connect to the ProspectIQ backend."
-      );
-    } finally {
-      setLoading(false);
-    }
-  };
+    setSummary(summaryResponse.data);
+    setBusinesses(businessesResponse.data);
+    setCategories(categoriesResponse.data);
+
+  } catch (err) {
+    console.error(err);
+
+    setError("Could not connect to backend.");
+  } finally {
+    setLoading(false);
+  }
+};
 
   if (loading) {
     return (
@@ -116,49 +157,106 @@ function Dashboard() {
             </div>
           )}
 
-          {/* Stats */}
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
-            <StatCard
-              title="Total Businesses"
-              value={summary?.total_businesses ?? 0}
-            />
+         {/* Stats */}
 
-            <StatCard
-              title="Businesses With Websites"
-              value={
-                summary?.businesses_with_websites ?? 0
-              }
-            />
+<div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
 
-            <StatCard
-              title="Average Website Score"
-              value={
-                summary?.average_website_score ?? 0
-              }
-            />
+  <StatCard
+    title="Total Businesses"
+    value={summary?.total_businesses ?? 0}
+  />
 
-            <StatCard
-              title="Total Opportunities"
-              value={
-                summary?.total_opportunities ?? 0
-              }
-            />
+  <StatCard
+    title="Businesses With Websites"
+    value={summary?.businesses_with_websites ?? 0}
+  />
 
-            <StatCard
-              title="New Opportunities"
-              value={
-                summary?.new_opportunities ?? 0
-              }
-            />
+  <StatCard
+    title="Average Website Score"
+    value={summary?.average_website_score ?? 0}
+  />
 
-            <StatCard
-              title="High Priority"
-              value={
-                summary?.high_priority_opportunities ?? 0
-              }
-            />
-          </div>
+  <StatCard
+    title="Total Opportunities"
+    value={summary?.total_opportunities ?? 0}
+  />
 
+</div>
+
+<div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-2">
+
+  <MiniCard
+    label="New Opportunities"
+    value={summary?.new_opportunities ?? 0}
+  />
+
+  <MiniCard
+    label="High Priority"
+    value={summary?.high_priority_opportunities ?? 0}
+  />
+
+</div>
+{/* Analytics Charts */}
+
+<div className="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-2">
+
+  {/* Pie Chart */}
+
+  <div className="rounded-xl bg-white p-6 shadow-sm">
+    <h2 className="mb-5 text-xl font-semibold">
+      Businesses by Category
+    </h2>
+            
+    <ResponsiveContainer width="100%" height={320}>
+      <PieChart>
+        <Pie
+          data={categories}
+          dataKey="count"
+          nameKey="category"
+          outerRadius={110}
+          label
+        >
+          {categories.map((entry, index) => (
+            <Cell
+              key={index}
+              fill={COLORS[index % COLORS.length]}
+            />
+          ))}
+        </Pie>
+      <Tooltip
+    formatter={(value) => [`${value} Businesses`, "Count"]}
+/>
+      </PieChart>
+    </ResponsiveContainer>
+  </div>
+
+  {/* Website Chart */}
+
+  <div className="rounded-xl bg-white p-6 shadow-sm">
+    <h2 className="mb-5 text-xl font-semibold">
+      Website Availability
+    </h2>
+
+    <ResponsiveContainer width="100%" height={320}>
+      <BarChart data={websiteData}>
+        <CartesianGrid strokeDasharray="3 3" />
+
+        <XAxis dataKey="name" />
+
+        <YAxis />
+
+        <Tooltip />
+
+        <Bar
+    dataKey="value"
+    fill="#2563eb"
+    radius={[8, 8, 0, 0]}
+/>
+      </BarChart>
+    </ResponsiveContainer>
+  </div>
+
+</div>
           {/* Businesses */}
           <section
             id="businesses"
@@ -302,12 +400,12 @@ function Dashboard() {
 
 function StatCard({ title, value }) {
   return (
-    <div className="rounded-xl bg-white p-6 shadow-sm">
+    <div className="rounded-xl bg-white p-6 shadow-sm transition hover:shadow-lg">
       <p className="text-sm font-medium text-slate-500">
         {title}
       </p>
 
-      <p className="mt-3 text-3xl font-bold text-slate-900">
+      <p className="mt-4 text-4xl font-bold text-slate-900">
         {value}
       </p>
     </div>
@@ -316,12 +414,14 @@ function StatCard({ title, value }) {
 
 function MiniCard({ label, value }) {
   return (
-    <div className="rounded-lg bg-slate-50 p-5">
-      <p className="text-sm text-slate-500">{label}</p>
-
-      <p className="mt-2 text-2xl font-bold text-slate-900">
-        {value}
+    <div className="rounded-xl bg-white p-6 shadow-sm transition hover:shadow-lg">
+      <p className="text-slate-500">
+        {label}
       </p>
+
+      <h2 className="mt-3 text-3xl font-bold text-blue-600">
+        {value}
+      </h2>
     </div>
   );
 }

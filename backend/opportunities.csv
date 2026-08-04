@@ -1,0 +1,14 @@
+id,business_id,title,description,priority,status,created_at
+7,2,Missing meta description,Meta description is missing.,medium,new,2026-08-01 16:59:44.364557
+8,2,Images missing alt text,Some images are missing ALT text.,medium,new,2026-08-01 16:59:44.364565
+11,8,Missing meta description,Meta description is missing.,medium,new,2026-08-01 16:59:44.364574
+12,8,Images missing alt text,Some images are missing ALT text.,medium,new,2026-08-01 16:59:44.364576
+13,8,Missing H1 heading,Website has no H1 heading.,medium,new,2026-08-01 16:59:44.364579
+14,10,Images missing alt text,Some images are missing ALT text.,medium,new,2026-08-01 16:59:44.364582
+15,1,Missing meta description,Adding a meta description can improve SEO and search engine visibility.,medium,new,2026-08-02 16:39:35.232339
+16,1,Low website content,The website has very little text content and may need stronger content for SEO and customer information.,medium,new,2026-08-02 16:39:35.232345
+17,42,Images missing alt text,"24 image(s) are missing alt text, which can hurt accessibility and SEO.",medium,new,2026-08-02 16:40:07.432350
+18,35,Missing meta description,Adding a meta description can improve SEO and search engine visibility.,medium,new,2026-08-02 17:01:21.083855
+19,35,Low website content,The website has very little text content and may need stronger content for SEO and customer information.,medium,new,2026-08-02 17:01:21.083861
+20,37,Missing meta description,Adding a meta description can improve SEO and search engine visibility.,medium,new,2026-08-02 17:01:57.935809
+21,37,Missing H1 heading,"The website does not have an H1 heading, which can affect content structure and SEO.",medium,new,2026-08-02 17:01:57.935815

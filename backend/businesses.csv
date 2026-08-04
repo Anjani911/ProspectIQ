@@ -1,0 +1,93 @@
+id,name,website_url,category,location,has_website,website_score,is_outdated,email,phone,status,notes,analyzed_at,created_at,source,external_id
+33,WoodLand,,boutique,"City Mall 36, Shop No. 36, City Mall, Near Chokkar Nala, GE Road, Vishal Nagar, Raipur, Chhattisgarh 492006, raipur, 492001",False,,False,,,new,,,2026-08-01 18:54:14.872729,openstreetmap,node/4445400230
+34,DLF brands,,boutique,"City Mall 36, Ground Floor, City Mall 36, Shop no. 6, G.E Road, NH - 6, Vishal Nagar, Raipur, Chhattisgarh, raipur, 492001",False,,False,,,new,,,2026-08-01 18:54:14.874329,openstreetmap,node/4445425881
+36,manyavar,https://www.manyavar.com/,boutique,"shop no. 13,14, vidhan sadha road,mowa,, Raipur, 492007",True,,False,,+91 7714062559,new,,,2026-08-01 18:54:14.882623,openstreetmap,node/4446161497
+3,Mufti,,boutique,"NH43 PachpediNaka,bajaj colony,gurumukh singh nagar, Raipur, 492001",False,,False,,+91 7714030503,new,,,2026-08-01 11:10:44.951020,openstreetmap,node/4445433311
+4,Planet Fashion,,boutique,"NH43 PachpediNaka,bajaj colony,gurumukh singh nagar, Raipur, 492001",False,,False,,+91 7714014444,new,,,2026-08-01 11:10:44.975726,openstreetmap,node/4445451341
+5,Jhon Player,,boutique,"NH43 PachpediNaka,bajaj colony,gurumukh singh nagar, Raipur, 492001",False,,False,,+91 7714700157,new,,,2026-08-01 11:10:44.979659,openstreetmap,node/4445517405
+6,Wills Lifestyle,,boutique,"NH43 PachpediNaka,bajaj colony,gurumukh singh nagar, Raipur, 492001",False,,False,,+91 7714700157,new,,,2026-08-01 11:10:44.983045,openstreetmap,node/4445551649
+7,Brand Factory,,boutique,"NH43 PachpediNaka,bajaj colony,gurumukh singh nagar, Raipur, 492001",False,,False,,+91 7714016514,new,,,2026-08-01 11:10:44.986310,openstreetmap,node/4445559388
+9,Woman,,boutique,"F-3,F-4, First Floor, Shyam Plaza, Beside Ritu Kumar, Pandri, Raipur, 492001",False,,False,,+91 7714058899,new,,,2026-08-01 11:10:44.992714,openstreetmap,node/4446150450
+11,Shubkamna,,boutique,"Shyam Plaza,Pandri, Raipur, 492001",False,,False,,,new,,,2026-08-01 11:10:45.000180,openstreetmap,node/4446190771
+12,Label Ritu Kumar,,boutique,"F1,F2, Amir Enter Prises Ritu Kumar ,Shyam Plaza, Pandri, Raipur, 492001",False,,False,,+91 7714024455,new,,,2026-08-01 11:10:45.002692,openstreetmap,node/4446193825
+42,van heusen,https://www.vanheusen.com/,boutique,"shop no. 17, vidhan sabha rd,Mowa, Raipur, 492007",True,90.0,False,,+91 9977068369,new,,2026-08-02 16:40:07.428847,2026-08-01 18:54:14.891826,openstreetmap,node/4446216240
+2,Samaya D trend,samayadtrend.com,Clothing,"Raipur, Chhattisgarh, IND",True,75.0,False,samaayadtrend@gmail.com,08269831000,new,,2026-08-01 16:59:27.482844,2026-07-30 16:04:45.459695,,
+8,Nillinz Fashion Studio,https://www.savisfashionstudio.com,boutique,"Q.No. G-12, , Street Number 4, Phase-1, Shri Ram Nagar, Shankar Nagar,, Raipur, 492007",True,65.0,False,,+91 99071 01104,new,,2026-08-01 16:59:35.431820,2026-08-01 11:10:44.989710,openstreetmap,node/4446043508
+10,Red Tape,https://redtape.com,boutique,"Bus Stand Road,Shyam Plaza, Raipur, 492001",True,90.0,False,,+91 9589202272,new,,2026-08-01 16:59:44.350640,2026-08-01 11:10:44.996378,openstreetmap,node/4446168185
+13,Fastrack,https://www.fastrack.in/,boutique,"G5, Ground Floor, Shyam Plaza, Near Pandri Bus Stand, Pandri Road, Raipur, 492001",True,,False,,+91 7714092336,new,,,2026-08-01 18:53:00.074891,openstreetmap,node/4446217570
+14,Wills Lifestyle,https://www.shopwillslifestyle.com/,boutique,"Shop No.42, City Centre Mall, New City Centre Mall, Pandri Rd, Pandri, Raipur, Chhattisgarh, Raipur, 492001",True,,False,,+9199770 03789,new,,,2026-08-01 18:53:00.079737,openstreetmap,node/4446889637
+15,max fashions,,boutique,"GE road,mohba bazar,maruti vihar,kota, raipur",False,,False,,,new,,,2026-08-01 18:53:00.081843,openstreetmap,node/4447084327
+16,sachipro store,,boutique,"shop-101, raipur, 492001",False,,False,,+919713227150,new,,,2026-08-01 18:53:00.083206,openstreetmap,node/4447344141
+17,united colors of beneton,www.world.benetton.com,boutique,"GE road,mohba bazar,maruti vihar,kota,, raipur, 492001",True,,False,,,new,,,2026-08-01 18:53:00.084469,openstreetmap,node/4447347403
+18,Lee,https://lee.in/,boutique,"Malviya Road & Main Road, Malviya,, 492001",True,,False,,+91  95849 22680,new,,,2026-08-01 18:53:00.086123,openstreetmap,node/4447491022
+19,RAIPUR BAZAAR,,boutique,Raipur,False,,False,,,new,,,2026-08-01 18:53:00.087546,openstreetmap,node/4713523805
+20,"welcome,cloth shop",,boutique,Raipur,False,,False,,,new,,,2026-08-01 18:53:00.088708,openstreetmap,node/4992905188
+21,R.S. Cloth shop,,boutique,Raipur,False,,False,,,new,,,2026-08-01 18:53:00.089837,openstreetmap,node/4995095688
+22,Hello Girls Choth shop,,boutique,Raipur,False,,False,,,new,,,2026-08-01 18:53:00.091302,openstreetmap,node/4995152863
+23,Sai Garments,,boutique,"ekta nagar chowk, gudhiyari, raipur",False,,False,,,new,,,2026-08-01 18:53:00.093334,openstreetmap,node/4995334110
+24,Bhurani Sari  Collection,,boutique,Raipur,False,,False,,,new,,,2026-08-01 18:53:00.095139,openstreetmap,node/4995335626
+25,Khushis Fashion,,boutique,Raipur,False,,False,,,new,,,2026-08-01 18:53:00.096468,openstreetmap,way/1138189647
+26,Shree Shivam,,boutique,Raipur,False,,False,,,new,,,2026-08-01 18:53:00.097792,openstreetmap,way/1360648309
+27,Promart,,boutique,"Shop No-37, 2nd Floor, City Mall 36, raipur, 492001",False,,False,,,new,,,2026-08-01 18:54:14.862089,openstreetmap,node/4445097437
+28,catmoss,,boutique,"Shop no-46 , 2nd floor, raipur, 492001",False,,False,,,new,,,2026-08-01 18:54:14.863768,openstreetmap,node/4445106770
+29,Kalasalgam,,boutique,"NH6,near chokra nala,vishal nagar,GE road, raipur, 492001",False,,False,,,new,,,2026-08-01 18:54:14.865576,openstreetmap,node/4445111115
+30,saraswathi handlooms,,boutique,"city mall 36, 3rd floor, raipur, 492001",False,,False,,,new,,,2026-08-01 18:54:14.867340,openstreetmap,node/4445168094
+31,Being Human,https://www.beinghumanclothing.com/,boutique,"City Mall 36, Ground Floor, City Mall 36, Shop no. 3, G.E Road, NH - 6, Raipur, Chhattisgarh, raipur, 492001",True,,False,,9439894007,new,,,2026-08-01 18:54:14.868884,openstreetmap,node/4445343757
+32,Biba,www.bibaindia.com,boutique,"City Mall 36, Shop No. 36, City Mall, Near Chokkar Nala, GE Road, Vishal Nagar, Raipur, Chhattisgarh 492006, raipur, 492001",True,,False,,7714039429,new,,,2026-08-01 18:54:14.870527,openstreetmap,node/4445367308
+38,louies phillips,www.m.louisphilippe.com,boutique,"shop no 16, vidhan sabha rd,mowa, Raipur, 492007",True,,False,,+91 9977066961,new,,,2026-08-01 18:54:14.885738,openstreetmap,node/4446183965
+39,lee,https://www.lee.com/,boutique,"vidhan sabha road,mowa, Raipur, 492007",True,,False,,+91 7714048181,new,,,2026-08-01 18:54:14.886895,openstreetmap,node/4446190228
+40,UCB,https://www.ucb.com/,boutique,"vidhan sabha rd,mowa, Raipur, 492007",True,,False,,,new,,,2026-08-01 18:54:14.889598,openstreetmap,node/4446203517
+41,allen solly,www.allensoly.com,boutique,"shop no. 26, vidhan sabha road, Raipur, 492007",True,,False,,,new,,,2026-08-01 18:54:14.890725,openstreetmap,node/4446206639
+43,fab inida,https://www.fabindia.com/,boutique,"shop no. 20, vidhan sabha rd,mowa, Raipur, 492007",True,,False,,+91 7714062574,new,,,2026-08-01 18:54:14.893480,openstreetmap,node/4446223830
+44,pantaloons,https://www.pantaloons.com/,boutique,"vidhan sabha rd,mowa, Raipur, 492007",True,,False,,+91 7714062844,new,,,2026-08-01 18:54:14.894623,openstreetmap,node/4446277699
+35,Peter England,https://www.peterengland.com/,boutique,"City Mall 36, Raipur, Chhattisgarh 492006, raipur, 492001",True,70.0,False,,9827176611,new,,2026-08-02 17:01:21.079430,2026-08-01 18:54:14.879432,openstreetmap,node/4445588528
+37,Jack & Jones,https://www.jackjones.com/,boutique,"shop no. 13,14, vidhan sabha road,mowa, Raipur, 492007",True,75.0,False,,,new,,2026-08-02 17:01:57.932389,2026-08-01 18:54:14.884367,openstreetmap,node/4446171801
+45,spykar,https://www.spykar.com/,boutique,"shop no.33, vidhan sabha rd,mowa, Raipur, 492007",True,,False,,+91 7714062854,new,,,2026-08-01 18:54:14.895727,openstreetmap,node/4446289813
+46,Levis,https://www.levi.in/,boutique,"vidhan sabha road,Mowa, Raipur, 492007",True,,False,,+91 9977062499,new,,,2026-08-01 18:54:14.904405,openstreetmap,node/4446299942
+47,Vero Moda,https://www.veromoda.com/,boutique,"shop no 23,24, Vidhan Sabha rd,mowa, Raipur, 492007",True,,False,,+91 7714034150,new,,,2026-08-01 18:54:14.905771,openstreetmap,node/4446300985
+48,prime,,boutique,"vidhan sabha road, Raipur, 492007",False,,False,,,new,,,2026-08-01 18:54:14.907044,openstreetmap,node/4446323285
+49,max,https://www.landmarkgroup.com/,boutique,"vidhan sabha roaD, Raipur, 492007",True,,False,,+91 7869915444,new,,,2026-08-01 18:54:14.908191,openstreetmap,node/4446329529
+50,Prapti Fashion,https://www.praptifashions.com,boutique,"City Mall 36, First Floor, City Mall 36, Shop no. 24, G.E Road, NH - 6, Raipur, Chhattisgarh, raipur, 492001",True,,False,,,new,,,2026-08-01 18:54:14.909368,openstreetmap,node/4446381868
+51,Mufti,https://www.muftijeans.in/,boutique,"City Mall 36, Shop no-30 , Ground Floor, City Mall 36, Raipur, Chhattisgarh, raipur, 492001",True,,False,,,new,,,2026-08-01 18:54:14.910482,openstreetmap,node/4446409339
+52,Colorpus,https://colorplusonline.com/,boutique,"12, , Ground Floor, City Mall 36, City Mall, Chhokra Nala, 36 GE Road & NH6, Raipur, Chhattisgarh, raipur, 492001",True,,False,,7714036238,new,,,2026-08-01 18:54:14.911575,openstreetmap,node/4446431686
+53,Wills Life Style,https://www.shopwillslifestyle.com/,boutique,"Shop No.42, City Centre Mall, New City Centre Mall, Pandri Rd, Pandri, Raipur, Chhattisgarh, raipur, 492001",True,,False,,9977003789,new,,,2026-08-01 18:54:14.912678,openstreetmap,node/4446450696
+54,John Players,,boutique,"City Mall 36,, raipur, 492001",False,,False,,,new,,,2026-08-01 18:54:14.913772,openstreetmap,node/4446475083
+55,Krome,https://krome.in/,boutique,"City Mall 36, Ground Floor, City Mall 36, Shop no. 2, G.E Road, NH - 6, Raipur, Chhattisgarh, raipur, 492001",True,,False,,,new,,,2026-08-01 18:54:14.914840,openstreetmap,node/4446489907
+56,Sepia,sepia.co.in,boutique,"City Mall 36, Shop no-6 , Ground Floor, City Mall 36, Raipur, Chhattisgarh, raipur, 492001",True,,False,,,new,,,2026-08-01 18:54:14.915976,openstreetmap,node/4446510201
+57,Prouogue,prouogue.com,boutique,"City Mall 36, Shop no-30 , Ground Floor, City Mall 36, Raipur, Chhattisgarh, raipur, 492001",True,,False,,,new,,,2026-08-01 18:54:14.917042,openstreetmap,node/4446524400
+58,K Lounge,,boutique,"City Mall 36, Vishal Nagar, Raipur, Chhattisgarh 492001, raipur, 492001",False,,False,,,new,,,2026-08-01 18:54:14.918097,openstreetmap,node/4446613164
+59,Indian Terrain,,boutique,"City Mall 36, Shop no-21 , Ground Floor, City Mall 36, Raipur, Chhattisgarh, raipur, 492001",False,,False,,,new,,,2026-08-01 18:54:14.919366,openstreetmap,node/4446670137
+60,lee,,boutique,"City Mall 36, 3rd Floor, City Mall 36,, G.E Road, Raipur, Chhattisgarh 492001, raipur, 492001",False,,False,,,new,,,2026-08-01 18:54:14.920680,openstreetmap,node/4446717294
+61,Nostrum,,boutique,"City Mall 36, First Floor, City Mall 36, Shop no. 24, G.E Road, NH - 6, Raipur, Chhattisgarh, City Mall 36, 3rd Floor, City Mall 36,, G.E Road, Raipur, Chhattisgarh 492001, 492001",False,,False,,,new,,,2026-08-01 18:54:14.921817,openstreetmap,node/4446722955
+62,ZODIAC,https://www.zodiaconline.com/,boutique,"G8B  Ground Floor, Magneto The Mall, NH6, Labhandi,, Raipur,, 492001",True,,False,,+9177130 09199,new,,,2026-08-01 18:54:14.922993,openstreetmap,node/4446879012
+63,Tommy Hillfigure,www.global.tommy.com,boutique,"Shop No. FG 02, Magneto The Mall, Magneto Mall, GE Rd, Labhandi,, Raipur,, 492001",True,,False,,+9177140 51210,new,,,2026-08-01 18:54:14.924071,openstreetmap,node/4446883899
+64,Dulhan,https://dulhanexpo.com/,boutique,"G33 Magneto The Mall, National Highway 6, Jivan Vihar,, Raipur,, 492001",True,,False,,+9177122 59259,new,,,2026-08-01 18:54:14.925687,openstreetmap,node/4446896940
+65,Pepe Jeans,https://www.pepejeans.com/,boutique,"G8  Ground Floor, Magneto The Mall, NH6, Labhandi,, Raipur,, 492001",True,,False,,+9177130 09366,new,,,2026-08-01 18:54:14.926739,openstreetmap,node/4446906399
+66,Chemistry,https://chemistryindia.com/,boutique,"G10  Ground Floor, Magneto The Mall, NH6, Labhandi,, Raipur,, 492001",True,,False,,,new,,,2026-08-01 18:54:14.927798,openstreetmap,node/4446907711
+67,Raymond,www.raymondindia.com,boutique,"G12  Ground Floor, Magneto The Mall, NH6, Labhandi,, raipur, 492001",True,,False,,+9193005 33502,new,,,2026-08-01 18:54:14.928856,openstreetmap,node/4446908522
+68,Raymond Made 2 Measure,www.raymondindia.com,boutique,"G13  Ground Floor, Magneto The Mall, NH6, Labhandi,, raipur, 492001",True,,False,,+9193005 33502,new,,,2026-08-01 18:54:14.930002,openstreetmap,node/4446911602
+69,My Ways,www.mystoresindia.in,boutique,"G14-G16, Ground Floor, Magneto The Mall, NH6, Labhandi,, raipur",True,,False,,+9177140 00026,new,,,2026-08-01 18:54:14.931052,openstreetmap,node/4446912139
+70,Meena Bazzar,https://www.meenabazaar.in/,boutique,"G26, Ground Floor, Magneto The Mall, NH6, Labhandi,, Raipur,, 492001",True,,False,,+9177140 75310,new,,,2026-08-01 18:54:14.932106,openstreetmap,node/4446914653
+71,Bonsai,,boutique,"Magneto Mall, raipur, 492001",False,,False,,,new,,,2026-08-01 18:54:14.933143,openstreetmap,node/4446915221
+72,Nostrum,https://nostrumjns.com/,boutique,"FF-4A, Magneto The Mall, NH6, Labhandi, Raipur, Chhattisgarh, raipur, 492001",True,,False,,+9193295 99744,new,,,2026-08-01 18:54:14.934206,openstreetmap,node/4446915920
+73,Lub Dub,,boutique,"Shop No. 39-40, Magneto The Mall, Labhandi, Raipur, Chhattisgarh, raipur, 492001",False,,False,,+9177142 82955,new,,,2026-08-01 18:54:14.935259,openstreetmap,node/4446919112
+74,Levi's,https://www.levi.in/,boutique,"G4  Ground Floor, Magneto The Mall, NH6, Labhandi,, Raipur,, 492001",True,,False,,+9199770 61446,new,,,2026-08-01 18:54:14.936731,openstreetmap,node/4446923445
+75,Louis Phillipe,https://www.louisphilippe.com/,boutique,"G30, Magneto The Mall, National Highway 6, Jivan Vihar,, Raipur,, 492001",True,,False,,,new,,,2026-08-01 18:54:14.937948,openstreetmap,node/4446923460
+76,Avenue,,boutique,"S7, Magneto The Mall, National Highway 6, Jivan Vihar, Raipur, Chhattisgarh, raipur, 492001",False,,False,,,new,,,2026-08-01 18:54:14.939078,openstreetmap,node/4446991866
+77,Lajja,,boutique,"01, Magneto The Mall, National Highway 6, Jivan Vihar, Raipur, Chhattisgarh, raipur, 492001",False,,False,,,new,,,2026-08-01 18:54:14.940207,openstreetmap,node/4446992591
+78,Kings Collar,https://kingscollar.com/,boutique,"Shop No.23, Magneto The Mall, Labhandi, Raipur, Chhattisgarh, raipur, 492001",True,,False,,+9183497 13870,new,,,2026-08-01 18:54:14.941287,openstreetmap,node/4446998908
+79,Van Heusen,https://www.vanheusenindia.com/,boutique,"Magneto The Mall, Didymous Tarde Link Pvt Ltd, Shop No. FF 34, First Floor, Magneto The Mall, Labhandi, Jivan Vihar, Raipur, Chhattisgarh, raipur, 492001",True,,False,,+91099770 02774,new,,,2026-08-01 18:54:14.942347,openstreetmap,node/4447001939
+80,Flying Machine,flyingmachine.co.in,boutique,"Shop No. FF 31, Magneto The Mall, Megneto The Mall, NH 06, raipur, 492001",True,,False,,+9177130 09356,new,,,2026-08-01 18:54:14.944112,openstreetmap,node/4447117391
+81,Mufti,mufti.in,boutique,"Magneto The Mall, Labhandi, NH-06, Jivan Vihar, raipur, 492001",True,,False,,+9177140 25430,new,,,2026-08-01 18:54:14.945197,openstreetmap,node/4447118937
+82,Club Fox,clubfox.in,boutique,"Magneto The Mall, Shop NO. Ff33,magneto Mall,labhaandi, NH 06, G.E. Road, raipur, 492001",True,,False,,+9196695 78450,new,,,2026-08-01 18:54:14.946261,openstreetmap,node/4447125572
+83,wrangler,,boutique,"labhanda G Eroad,jivan vihar, raipur, 492001",False,,False,,,new,,,2026-08-01 18:54:14.947339,openstreetmap,node/4447135316
+84,SHE'S Passion,,boutique,"labhanda G Eroad,jivan vihar, raipur, 492001",False,,False,,,new,,,2026-08-01 18:54:14.948506,openstreetmap,node/4447138605
+85,SHE'S Passion,,boutique,"labhanda G Eroad,jivan vihar, raipur, 492001",False,,False,,,new,,,2026-08-01 18:54:14.949594,openstreetmap,node/4447143248
+86,Vastram,,boutique,"labhanda G Eroad,jivan vihar, raipur, 492001",False,,False,,,new,,,2026-08-01 18:54:14.950868,openstreetmap,node/4447155106
+87,HR Fashion,,boutique,"labhanda G Eroad,jivan vihar, raipur, 492001",False,,False,,,new,,,2026-08-01 18:54:14.952203,openstreetmap,node/4447158394
+88,onn fitness gym,,gym,raipur,False,,False,,,new,,,2026-08-01 19:04:54.761932,openstreetmap,node/4711002994
+89,Flourish Fitness club,,gym,"ekta nagar chowk, gudhiyari, raipur",False,,False,,,new,,,2026-08-01 19:04:54.777961,openstreetmap,node/4995334111
+90,Imperial Fitness,,gym,raipur,False,,False,,,new,,,2026-08-01 19:04:54.779616,openstreetmap,node/13667405247
+91,Anytime Fitness,,gym,raipur,False,,False,,,new,,,2026-08-01 19:04:54.781242,openstreetmap,way/744268533
+92,Oxygen Gym,,gym,"Samta Colony, Raipur, 492001",False,,False,,,new,,,2026-08-01 19:04:54.782912,openstreetmap,way/781027288
+1,Test Business,https://example.com,Retail,"Raipur, Chhattisgarh",True,70.0,False,test@example.com,9999999999,new,Test record for ProspectIQ,2026-08-02 16:39:35.197409,2026-07-28 05:04:39.496878,,
