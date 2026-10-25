@@ -1,0 +1,1967 @@
+{
+  "ok": false,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 8,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "audio_volume_tween_overrides_gain",
+        "severity": "warning",
+        "message": "#bg-music has data-volume=\"0.32\" (-9.9 dB) and a GSAP tween on `volume`. Tween values are absolute: they REPLACE this gain rather than scale it, so wherever the tween names a value the clip plays at that value, not at -9.9 dB.",
+        "selector": "#bg-music",
+        "dataAttributes": {},
+        "sourceFile": "D:\\Coding material\\Projects\\ProspectIQ\\brag-output\\composition\\index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Write the tween's targets in the same absolute gain (e.g. `volume: 1.95`, not `volume: 1`), or reset data-volume to 1 and let the tween carry the level on its own."
+      },
+      {
+        "code": "composition_file_too_large",
+        "severity": "warning",
+        "message": "This HTML composition file has 766 lines. Smaller sub-compositions are easier to read, iterate on, and diff.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "D:\\Coding material\\Projects\\ProspectIQ\\brag-output\\composition\\index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Split coherent scenes or layers into separate .html files under compositions/, then mount them from the parent with data-composition-src so each file stays small enough to inspect, revise, and validate independently."
+      },
+      {
+        "code": "negative_z_index",
+        "severity": "warning",
+        "message": "`z-index: -1` paints the element behind its nearest stacking context's own content. With no stacking-context ancestor that context is the composition root itself, so an opaque background there hides it entirely: in the DOM, laid out, and absent from the picture. A transparent root leaves it visible. Siblings at `z-index: 0` or above are unaffected.",
+        "selector": ".hook-glow",
+        "dataAttributes": {},
+        "sourceFile": "D:\\Coding material\\Projects\\ProspectIQ\\brag-output\\composition\\index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Give the element's parent a stacking context - `isolation: isolate` is the cheapest, and `transform`, `filter`, `opacity` below 1, `contain: paint` and `will-change` all work too. The negative-z child then paints above that parent's background and renders normally. Or express paint order through DOM order - an earlier sibling paints behind a later one - and raise the elements that should sit in front rather than lowering this one."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"scene-1\"> is a timeline element that contains nested <div id=\"hook-glow\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#scene-1",
+        "dataAttributes": {},
+        "sourceFile": "D:\\Coding material\\Projects\\ProspectIQ\\brag-output\\composition\\index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"scene-1\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"scene-2\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#scene-2",
+        "dataAttributes": {},
+        "sourceFile": "D:\\Coding material\\Projects\\ProspectIQ\\brag-output\\composition\\index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"scene-2\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"scene-3\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#scene-3",
+        "dataAttributes": {},
+        "sourceFile": "D:\\Coding material\\Projects\\ProspectIQ\\brag-output\\composition\\index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"scene-3\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"scene-4\"> is a timeline element that contains nested <div>. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#scene-4",
+        "dataAttributes": {},
+        "sourceFile": "D:\\Coding material\\Projects\\ProspectIQ\\brag-output\\composition\\index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"scene-4\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<audio id=\"sfx-bell\"> runs from 17.47s to 18.97s, past the root composition's data-duration of 18s, so it is cut off in previews, posters and renders.",
+        "selector": "#sfx-bell",
+        "dataAttributes": {},
+        "sourceFile": "D:\\Coding material\\Projects\\ProspectIQ\\brag-output\\composition\\index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 18.97, or make <audio id=\"sfx-bell\"> end at or before 18s."
+      }
+    ],
+    "filesScanned": 1
+  },
+  "runtime": {
+    "ok": false,
+    "errorCount": 1,
+    "warningCount": 4,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "request_failed",
+        "severity": "error",
+        "message": "Failed to load css2: net::ERR_BLOCKED_BY_ORB",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "18",
+          "data-width": "1920",
+          "data-height": "1080"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 1080
+        },
+        "time": 0,
+        "url": "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;500;600;700;800&display=swap"
+      },
+      {
+        "code": "clip_media_fit",
+        "severity": "warning",
+        "message": "Audio \"sfx-search\" is 0.09s but its slot (data-duration) is 0.50s — the slot is shortened to the media length when rendered. Set data-duration to ~0.09s if that isn't intended.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "18",
+          "data-width": "1920",
+          "data-height": "1080"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 1080
+        },
+        "time": 0
+      },
+      {
+        "code": "clip_media_fit",
+        "severity": "warning",
+        "message": "Audio \"sfx-audit-click\" is 0.10s but its slot (data-duration) is 0.50s — the slot is shortened to the media length when rendered. Set data-duration to ~0.10s if that isn't intended.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "18",
+          "data-width": "1920",
+          "data-height": "1080"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 1080
+        },
+        "time": 0
+      },
+      {
+        "code": "clip_media_fit",
+        "severity": "warning",
+        "message": "Audio \"sfx-score\" is 0.18s but its slot (data-duration) is 1.20s — the slot is shortened to the media length when rendered. Set data-duration to ~0.18s if that isn't intended.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "18",
+          "data-width": "1920",
+          "data-height": "1080"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 1080
+        },
+        "time": 0
+      },
+      {
+        "code": "clip_media_fit",
+        "severity": "warning",
+        "message": "Audio \"sfx-opp\" is 0.11s but its slot (data-duration) is 0.80s — the slot is shortened to the media length when rendered. Set data-duration to ~0.11s if that isn't intended.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "18",
+          "data-width": "1920",
+          "data-height": "1080"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 1080
+        },
+        "time": 0
+      }
+    ]
+  },
+  "layout": {
+    "ok": false,
+    "errorCount": 2,
+    "warningCount": 0,
+    "infoCount": 20,
+    "findings": [
+      {
+        "code": "content_overlap",
+        "severity": "error",
+        "time": 17,
+        "selector": "#opp-card-3 > div:nth-of-type(1) > div:nth-of-type(1) > h3:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 606.8,
+          "top": 520,
+          "right": 1050.66,
+          "bottom": 546,
+          "width": 443.86,
+          "height": 26
+        },
+        "containerSelector": "h1.finale-title",
+        "text": "Missing Meta Description & Thin Content",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 606.8,
+          "y": 520,
+          "width": 443.86,
+          "height": 26
+        },
+        "firstSeen": 16.375,
+        "lastSeen": 18,
+        "occurrences": 14,
+        "heldMs": 1625,
+        "times": [
+          16.375,
+          16.5,
+          16.625,
+          16.75,
+          16.875,
+          17,
+          17.125,
+          17.25,
+          17.375,
+          17.5,
+          17.625,
+          17.75,
+          17.875,
+          18
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "error",
+        "time": 17,
+        "selector": "#opp-card-3 > div:nth-of-type(1) > p:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 451.3,
+          "top": 554,
+          "right": 1213.41,
+          "bottom": 590,
+          "width": 762.11,
+          "height": 36
+        },
+        "containerSelector": "h1.finale-title",
+        "text": "Prospect: Aura Boutique & Atelier • Under 300 words on landing page. Pitch SEO copywriting & local Google optimization retainer.",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 451.3,
+          "y": 554,
+          "width": 762.11,
+          "height": 36
+        },
+        "firstSeen": 16.375,
+        "lastSeen": 18,
+        "occurrences": 14,
+        "heldMs": 1625,
+        "times": [
+          16.375,
+          16.5,
+          16.625,
+          16.75,
+          16.875,
+          17,
+          17.125,
+          17.25,
+          17.375,
+          17.5,
+          17.625,
+          17.75,
+          17.875,
+          18
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 17,
+        "selector": "#scene-4 > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 116,
+          "top": 26,
+          "right": 243.3,
+          "bottom": 62,
+          "width": 127.3,
+          "height": 36
+        },
+        "containerSelector": "#finale-overlay",
+        "text": "Prospect",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 116,
+          "y": 26,
+          "width": 127.3,
+          "height": 36
+        },
+        "firstSeen": 17,
+        "lastSeen": 17,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          17
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 17,
+        "selector": "#scene-4 > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > span:nth-of-type(1)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 243.3,
+          "top": 26,
+          "right": 272.38,
+          "bottom": 62,
+          "width": 29.08,
+          "height": 36
+        },
+        "containerSelector": "#finale-overlay",
+        "text": "IQ",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 243.3,
+          "y": 26,
+          "width": 29.08,
+          "height": 36
+        },
+        "firstSeen": 17,
+        "lastSeen": 17,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          17
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 17,
+        "selector": "#scene-4 > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 690.86,
+          "top": 34.5,
+          "right": 778.31,
+          "bottom": 53.5,
+          "width": 87.45,
+          "height": 19
+        },
+        "containerSelector": "#finale-overlay",
+        "text": "Dashboard",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 690.86,
+          "y": 34.5,
+          "width": 87.45,
+          "height": 19
+        },
+        "firstSeen": 17,
+        "lastSeen": 17,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          17
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 17,
+        "selector": "#scene-4 > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 838.31,
+          "top": 34.5,
+          "right": 959.19,
+          "bottom": 53.5,
+          "width": 120.88,
+          "height": 19
+        },
+        "containerSelector": "#finale-overlay",
+        "text": "Discover Leads",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 838.31,
+          "y": 34.5,
+          "width": 120.88,
+          "height": 19
+        },
+        "firstSeen": 17,
+        "lastSeen": 17,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          17
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 17,
+        "selector": "#scene-4 > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 1022.19,
+          "top": 34.5,
+          "right": 1201.56,
+          "bottom": 53.5,
+          "width": 179.38,
+          "height": 19
+        },
+        "containerSelector": "#finale-overlay",
+        "text": "Opportunities Pipeline",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 1022.19,
+          "y": 34.5,
+          "width": 179.38,
+          "height": 19
+        },
+        "firstSeen": 17,
+        "lastSeen": 17,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          17
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 17,
+        "selector": "#scene-4 > div:nth-of-type(1) > div:nth-of-type(3) > span:nth-of-type(1)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 1659.03,
+          "top": 35.5,
+          "right": 1845,
+          "bottom": 52.5,
+          "width": 185.97,
+          "height": 17
+        },
+        "containerSelector": "#finale-overlay",
+        "text": "Auto-Generated CRM Leads",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 1659.03,
+          "y": 35.5,
+          "width": 185.97,
+          "height": 17
+        },
+        "firstSeen": 17,
+        "lastSeen": 17,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          17
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 17,
+        "selector": "#opp-container > div:nth-of-type(1) > div:nth-of-type(1)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 414.3,
+          "top": 134,
+          "right": 951.69,
+          "bottom": 165,
+          "width": 537.39,
+          "height": 31
+        },
+        "containerSelector": "#finale-overlay",
+        "text": "Auto-Generated Client Pitch Opportunities",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 414.3,
+          "y": 134,
+          "width": 537.39,
+          "height": 31
+        },
+        "firstSeen": 17,
+        "lastSeen": 17,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          17
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 17,
+        "selector": "#opp-container > div:nth-of-type(1) > div:nth-of-type(2)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 1341.39,
+          "top": 141.5,
+          "right": 1495.7,
+          "bottom": 157.5,
+          "width": 154.31,
+          "height": 16
+        },
+        "containerSelector": "#finale-overlay",
+        "text": "Ready for Outreach",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 1341.39,
+          "y": 141.5,
+          "width": 154.31,
+          "height": 16
+        },
+        "firstSeen": 17,
+        "lastSeen": 17,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          17
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 17,
+        "selector": "span.priority-badge-high",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 466.3,
+          "top": 234,
+          "right": 554.33,
+          "bottom": 248,
+          "width": 88.03,
+          "height": 14
+        },
+        "containerSelector": "#finale-overlay",
+        "text": "High Priority",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 466.3,
+          "y": 234,
+          "width": 88.03,
+          "height": 14
+        },
+        "firstSeen": 17,
+        "lastSeen": 17,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          17
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 17,
+        "selector": "#opp-card-1 > div:nth-of-type(1) > div:nth-of-type(1) > h3:nth-of-type(1)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 585.33,
+          "top": 228,
+          "right": 893.73,
+          "bottom": 254,
+          "width": 308.41,
+          "height": 26
+        },
+        "containerSelector": "#finale-overlay",
+        "text": "Website does not use HTTPS",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 585.33,
+          "y": 228,
+          "width": 308.41,
+          "height": 26
+        },
+        "firstSeen": 17,
+        "lastSeen": 17,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          17
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 17,
+        "selector": "#opp-card-1 > div:nth-of-type(1) > p:nth-of-type(1)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 451.3,
+          "top": 262,
+          "right": 1255.38,
+          "bottom": 298,
+          "width": 804.08,
+          "height": 36
+        },
+        "containerSelector": "#finale-overlay",
+        "text": "Prospect: Aura Boutique & Atelier • Insecure HTTP protocol detected. Pitch SSL installation & security compliance package.",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 451.3,
+          "y": 262,
+          "width": 804.08,
+          "height": 36
+        },
+        "firstSeen": 17,
+        "lastSeen": 17,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          17
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 17,
+        "selector": "#opp-card-1 > div:nth-of-type(2)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 1331.34,
+          "top": 254.5,
+          "right": 1449.7,
+          "bottom": 271.5,
+          "width": 118.36,
+          "height": 17
+        },
+        "containerSelector": "#finale-overlay",
+        "text": "Status: New Lead",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 1331.34,
+          "y": 254.5,
+          "width": 118.36,
+          "height": 17
+        },
+        "firstSeen": 17,
+        "lastSeen": 17,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          17
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 17,
+        "selector": "#opp-card-2 > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 466.3,
+          "top": 380,
+          "right": 575.8,
+          "bottom": 394,
+          "width": 109.5,
+          "height": 14
+        },
+        "containerSelector": "#finale-overlay",
+        "text": "Medium Priority",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 466.3,
+          "y": 380,
+          "width": 109.5,
+          "height": 14
+        },
+        "firstSeen": 17,
+        "lastSeen": 17,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          17
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 17,
+        "selector": "#opp-card-2 > div:nth-of-type(1) > div:nth-of-type(1) > h3:nth-of-type(1)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 606.8,
+          "top": 374,
+          "right": 889.77,
+          "bottom": 400,
+          "width": 282.97,
+          "height": 26
+        },
+        "containerSelector": "#finale-overlay",
+        "text": "14 Images Missing Alt Text",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 606.8,
+          "y": 374,
+          "width": 282.97,
+          "height": 26
+        },
+        "firstSeen": 17,
+        "lastSeen": 17,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          17
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 17,
+        "selector": "#opp-card-2 > div:nth-of-type(1) > p:nth-of-type(1)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 451.3,
+          "top": 408,
+          "right": 1268.97,
+          "bottom": 444,
+          "width": 817.67,
+          "height": 36
+        },
+        "containerSelector": "#finale-overlay",
+        "text": "Prospect: Aura Boutique & Atelier • Product gallery unoptimized. Pitch image SEO and ADA accessibility compliance overhaul.",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 451.3,
+          "y": 408,
+          "width": 817.67,
+          "height": 36
+        },
+        "firstSeen": 17,
+        "lastSeen": 17,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          17
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 17,
+        "selector": "#opp-card-2 > div:nth-of-type(2)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 1326.86,
+          "top": 400.5,
+          "right": 1449.7,
+          "bottom": 417.5,
+          "width": 122.84,
+          "height": 17
+        },
+        "containerSelector": "#finale-overlay",
+        "text": "Status: Contacted",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 1326.86,
+          "y": 400.5,
+          "width": 122.84,
+          "height": 17
+        },
+        "firstSeen": 17,
+        "lastSeen": 17,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          17
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 17,
+        "selector": "#opp-card-3 > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 466.3,
+          "top": 526,
+          "right": 575.8,
+          "bottom": 540,
+          "width": 109.5,
+          "height": 14
+        },
+        "containerSelector": "#finale-overlay",
+        "text": "Medium Priority",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 466.3,
+          "y": 526,
+          "width": 109.5,
+          "height": 14
+        },
+        "firstSeen": 17,
+        "lastSeen": 17,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          17
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 17,
+        "selector": "#opp-card-3 > div:nth-of-type(1) > div:nth-of-type(1) > h3:nth-of-type(1)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 606.8,
+          "top": 520,
+          "right": 1050.66,
+          "bottom": 546,
+          "width": 443.86,
+          "height": 26
+        },
+        "containerSelector": "#finale-overlay",
+        "text": "Missing Meta Description & Thin Content",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 606.8,
+          "y": 520,
+          "width": 443.86,
+          "height": 26
+        },
+        "firstSeen": 17,
+        "lastSeen": 17,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          17
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 17,
+        "selector": "#opp-card-3 > div:nth-of-type(1) > p:nth-of-type(1)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 451.3,
+          "top": 554,
+          "right": 1213.41,
+          "bottom": 590,
+          "width": 762.11,
+          "height": 36
+        },
+        "containerSelector": "#finale-overlay",
+        "text": "Prospect: Aura Boutique & Atelier • Under 300 words on landing page. Pitch SEO copywriting & local Google optimization retainer.",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 451.3,
+          "y": 554,
+          "width": 762.11,
+          "height": 36
+        },
+        "firstSeen": 17,
+        "lastSeen": 17,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          17
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 17,
+        "selector": "#opp-card-3 > div:nth-of-type(2)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 1320.3,
+          "top": 546.5,
+          "right": 1449.7,
+          "bottom": 563.5,
+          "width": 129.41,
+          "height": 17
+        },
+        "containerSelector": "#finale-overlay",
+        "text": "Status: In Progress",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 1320.3,
+          "y": 546.5,
+          "width": 129.41,
+          "height": 17
+        },
+        "firstSeen": 17,
+        "lastSeen": 17,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          17
+        ]
+      }
+    ],
+    "duration": 18,
+    "samples": [
+      1,
+      3,
+      5,
+      7,
+      9,
+      11,
+      13,
+      15,
+      17
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 22,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 8,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 3:1.",
+        "text": "Auto-Generated Client Pitch Opportunities",
+        "fg": "rgb(23,37,44)",
+        "bg": "rgb(23,37,44)",
+        "ratio": 1,
+        "requiredRatio": 3,
+        "suggestedColor": "rgb(100,110,114)",
+        "large": true,
+        "selector": "div > div:nth-of-type(4) > div:nth-of-type(2) > div > div:nth-of-type(1) > div:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 414.296875,
+          "y": 134,
+          "width": 537.390625,
+          "height": 31
+        },
+        "time": 17,
+        "times": [
+          17
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 3:1.",
+        "text": "Website does not use HTTPS",
+        "fg": "rgb(23,37,44)",
+        "bg": "rgb(23,37,44)",
+        "ratio": 1,
+        "requiredRatio": 3,
+        "suggestedColor": "rgb(100,110,114)",
+        "large": true,
+        "selector": "div > div:nth-of-type(4) > div:nth-of-type(2) > div > div:nth-of-type(2) > div:nth-of-type(1) > div > h3",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 585.328125,
+          "y": 228,
+          "width": 308.40625,
+          "height": 26
+        },
+        "time": 17,
+        "times": [
+          17
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1.52:1; WCAG AA requires 4.5:1.",
+        "text": "Prospect: Aura Boutique & Atelier • Insecure HTTP ",
+        "fg": "rgb(51,65,85)",
+        "bg": "rgb(23,37,44)",
+        "ratio": 1.52,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(130,139,151)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div:nth-of-type(2) > div > div:nth-of-type(2) > div:nth-of-type(1) > p",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 451.296875,
+          "y": 262,
+          "width": 850,
+          "height": 36
+        },
+        "time": 17,
+        "times": [
+          17
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 3:1.",
+        "text": "14 Images Missing Alt Text",
+        "fg": "rgb(23,37,44)",
+        "bg": "rgb(23,37,44)",
+        "ratio": 1,
+        "requiredRatio": 3,
+        "suggestedColor": "rgb(100,110,114)",
+        "large": true,
+        "selector": "div > div:nth-of-type(4) > div:nth-of-type(2) > div > div:nth-of-type(3) > div:nth-of-type(1) > div > h3",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 606.796875,
+          "y": 374,
+          "width": 282.96875,
+          "height": 26
+        },
+        "time": 17,
+        "times": [
+          17
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1.52:1; WCAG AA requires 4.5:1.",
+        "text": "Prospect: Aura Boutique & Atelier • Product galler",
+        "fg": "rgb(51,65,85)",
+        "bg": "rgb(23,37,44)",
+        "ratio": 1.52,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(130,139,151)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div:nth-of-type(2) > div > div:nth-of-type(3) > div:nth-of-type(1) > p",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 451.296875,
+          "y": 408,
+          "width": 850,
+          "height": 36
+        },
+        "time": 17,
+        "times": [
+          17
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 3.04:1; WCAG AA requires 4.5:1.",
+        "text": "Status: Contacted",
+        "fg": "rgb(217,119,6)",
+        "bg": "rgb(248,250,252)",
+        "ratio": 3.04,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(174,95,5)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div:nth-of-type(2) > div > div:nth-of-type(3) > div:nth-of-type(2)",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 1307.859375,
+          "y": 389.5,
+          "width": 160.84375,
+          "height": 39
+        },
+        "time": 17,
+        "times": [
+          17
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1:1; WCAG AA requires 3:1.",
+        "text": "Missing Meta Description & Thin Content",
+        "fg": "rgb(23,37,44)",
+        "bg": "rgb(23,37,44)",
+        "ratio": 1,
+        "requiredRatio": 3,
+        "suggestedColor": "rgb(100,110,114)",
+        "large": true,
+        "selector": "div > div:nth-of-type(4) > div:nth-of-type(2) > div > div:nth-of-type(4) > div:nth-of-type(1) > div > h3",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 606.796875,
+          "y": 520,
+          "width": 443.859375,
+          "height": 26
+        },
+        "time": 17,
+        "times": [
+          17
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1.52:1; WCAG AA requires 4.5:1.",
+        "text": "Prospect: Aura Boutique & Atelier • Under 300 word",
+        "fg": "rgb(51,65,85)",
+        "bg": "rgb(23,37,44)",
+        "ratio": 1.52,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(130,139,151)",
+        "large": false,
+        "selector": "div > div:nth-of-type(4) > div:nth-of-type(2) > div > div:nth-of-type(4) > div:nth-of-type(1) > p",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 451.296875,
+          "y": 554,
+          "width": 850,
+          "height": 36
+        },
+        "time": 17,
+        "times": [
+          17
+        ]
+      }
+    ],
+    "enabled": true,
+    "samples": [
+      1,
+      5,
+      9,
+      13,
+      17
+    ],
+    "checked": 73,
+    "passed": 65
+  },
+  "craft": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 6,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "first_frame_empty",
+        "severity": "warning",
+        "message": "Frame 0 shows only the background, and the first frame is the thumbnail on social players: have the title or key image already on screen at 0 s instead of entering from nothing; see references/review.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0
+      },
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "\"ProspectIQ scans local businesses, scores website health,...\" (18 words) is on screen 2.16 s (±0.01 s), under its 4.42 s floor: hold it about 0.5 s + 0.3 s a word (5.90 s here) before it leaves or changes; see references/motion.md.",
+        "text": "ProspectIQ scans local businesses, scores website health, and generates the exact flaws clients will pay you to fix.",
+        "selector": "#hook-sub",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 457.45,
+          "y": 600.96,
+          "width": 1005.0799999999999,
+          "height": 88.59000000000003
+        },
+        "time": 1.336,
+        "words": 18,
+        "seconds": 2.164,
+        "floorSeconds": 4.425
+      },
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 69 text elements stay under it for 0.5 s or more, the smallest \"Scanner Parameters\" at 12 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "Scanner Parameters",
+        "selector": "#search-panel > div:nth-of-type(1) > div:nth-of-type(2)",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 325.56,
+          "y": 174.69,
+          "width": 150,
+          "height": 13.89
+        },
+        "time": 3.625,
+        "times": [
+          0.375,
+          3.625,
+          3.625,
+          3.625,
+          3.625,
+          3.625,
+          3.625,
+          3.625,
+          3.625,
+          3.625,
+          3.625,
+          3.625,
+          3.625,
+          3.625,
+          3.625,
+          3.625,
+          5.5,
+          5.5,
+          5.5,
+          5.5,
+          5.5,
+          6.125,
+          6.125,
+          6.125,
+          6.125,
+          6.125,
+          6.75,
+          6.75,
+          6.75,
+          6.75,
+          6.75,
+          8.125,
+          8.125,
+          8.125,
+          8.125,
+          8.125,
+          8.875,
+          9.25,
+          9.625,
+          9.625,
+          9.625,
+          10.375,
+          10.375,
+          10.375,
+          11,
+          11,
+          11,
+          11.75,
+          11.75,
+          11.75,
+          13.625,
+          13.625,
+          13.625,
+          13.625,
+          13.625,
+          13.625,
+          13.75,
+          13.75,
+          13.75,
+          13.75,
+          14.375,
+          14.375,
+          14.375,
+          14.375,
+          14.875,
+          14.875,
+          14.875,
+          14.875,
+          17.125
+        ],
+        "fontPx": 11.91,
+        "floorPx": 28,
+        "seconds": 4.375,
+        "elements": [
+          {
+            "selector": "#search-panel > div:nth-of-type(1) > div:nth-of-type(2)",
+            "text": "Scanner Parameters",
+            "fontPx": 11.91,
+            "time": 3.625,
+            "seconds": 4.375
+          },
+          {
+            "selector": "#search-panel > div:nth-of-type(2) > label:nth-of-type(1)",
+            "text": "Category",
+            "fontPx": 11.91,
+            "time": 3.625,
+            "seconds": 4.375
+          },
+          {
+            "selector": "#search-panel > div:nth-of-type(3) > label:nth-of-type(1)",
+            "text": "Location",
+            "fontPx": 11.91,
+            "time": 3.625,
+            "seconds": 4.375
+          },
+          {
+            "selector": "#search-panel > div:nth-of-type(4) > label:nth-of-type(1)",
+            "text": "Search Radius",
+            "fontPx": 11.91,
+            "time": 3.625,
+            "seconds": 4.375
+          },
+          {
+            "selector": "div.results-column > div:nth-of-type(1) > div:nth-of-type(2)",
+            "text": "3 Live Leads",
+            "fontPx": 11.91,
+            "time": 3.625,
+            "seconds": 4.375
+          },
+          {
+            "selector": "#biz-card-1 > div:nth-of-type(1) > h3:nth-of-type(1) > span:nth-of-type(2)",
+            "text": "Boutique",
+            "fontPx": 12,
+            "time": 5.5,
+            "seconds": 2.5
+          },
+          {
+            "selector": "#biz-card-2 > div:nth-of-type(1) > h3:nth-of-type(1) > span:nth-of-type(2)",
+            "text": "Fashion",
+            "fontPx": 12,
+            "time": 6.125,
+            "seconds": 1.875
+          },
+          {
+            "selector": "#biz-card-3 > div:nth-of-type(1) > h3:nth-of-type(1) > span:nth-of-type(2)",
+            "text": "Retail",
+            "fontPx": 12,
+            "time": 6.75,
+            "seconds": 1.25
+          },
+          {
+            "selector": "#flaw-list > div:nth-of-type(1) > div:nth-of-type(2)",
+            "text": "4 High Impact",
+            "fontPx": 12,
+            "time": 8.125,
+            "seconds": 5.375
+          },
+          {
+            "selector": "#flaw-1 > span:nth-of-type(1)",
+            "text": "High Priority",
+            "fontPx": 12,
+            "time": 9.625,
+            "seconds": 3.875
+          },
+          {
+            "selector": "#flaw-2 > span:nth-of-type(1)",
+            "text": "Medium Priority",
+            "fontPx": 12,
+            "time": 10.375,
+            "seconds": 3.125
+          },
+          {
+            "selector": "#flaw-3 > span:nth-of-type(1)",
+            "text": "Medium Priority",
+            "fontPx": 12,
+            "time": 11,
+            "seconds": 2.5
+          },
+          {
+            "selector": "#flaw-4 > span:nth-of-type(1)",
+            "text": "Content Deficit",
+            "fontPx": 12,
+            "time": 11.75,
+            "seconds": 1.75
+          },
+          {
+            "selector": "span.priority-badge-high",
+            "text": "High Priority",
+            "fontPx": 12,
+            "time": 13.75,
+            "seconds": 4.25
+          },
+          {
+            "selector": "#opp-card-2 > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1)",
+            "text": "Medium Priority",
+            "fontPx": 12,
+            "time": 14.375,
+            "seconds": 3.625
+          },
+          {
+            "selector": "#opp-card-3 > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1)",
+            "text": "Medium Priority",
+            "fontPx": 12,
+            "time": 14.875,
+            "seconds": 3.125
+          },
+          {
+            "selector": "#opp-container > div:nth-of-type(1) > div:nth-of-type(2)",
+            "text": "Ready for Outreach",
+            "fontPx": 13,
+            "time": 13.625,
+            "seconds": 4.375
+          },
+          {
+            "selector": "div.score-label",
+            "text": "Score / 100",
+            "fontPx": 13.41,
+            "time": 8.875,
+            "seconds": 4.625
+          },
+          {
+            "selector": "#scene-2 > div:nth-of-type(1) > div:nth-of-type(3) > span:nth-of-type(1)",
+            "text": "Workspace Active",
+            "fontPx": 13.9,
+            "time": 3.625,
+            "seconds": 4.375
+          },
+          {
+            "selector": "#biz-card-1 > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1)",
+            "text": "Chicago, IL",
+            "fontPx": 14,
+            "time": 5.5,
+            "seconds": 2.5
+          },
+          {
+            "selector": "#biz-card-1 > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(3)",
+            "text": "auraboutique.com",
+            "fontPx": 14,
+            "time": 5.5,
+            "seconds": 2.5
+          },
+          {
+            "selector": "#audit-btn-1 > span:nth-of-type(1)",
+            "text": "Analyze Website",
+            "fontPx": 14,
+            "time": 5.5,
+            "seconds": 2.5
+          },
+          {
+            "selector": "#biz-card-2 > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1)",
+            "text": "Chicago, IL",
+            "fontPx": 14,
+            "time": 6.125,
+            "seconds": 1.875
+          },
+          {
+            "selector": "#biz-card-2 > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(3)",
+            "text": "chicago-velvet.com",
+            "fontPx": 14,
+            "time": 6.125,
+            "seconds": 1.875
+          },
+          {
+            "selector": "#biz-card-2 > button:nth-of-type(1) > span:nth-of-type(1)",
+            "text": "Analyze Website",
+            "fontPx": 14,
+            "time": 6.125,
+            "seconds": 1.875
+          },
+          {
+            "selector": "#biz-card-3 > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1)",
+            "text": "Chicago, IL",
+            "fontPx": 14,
+            "time": 6.75,
+            "seconds": 1.25
+          },
+          {
+            "selector": "#biz-card-3 > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(3)",
+            "text": "No website detected",
+            "fontPx": 14,
+            "time": 6.75,
+            "seconds": 1.25
+          },
+          {
+            "selector": "#biz-card-3 > button:nth-of-type(1) > span:nth-of-type(1)",
+            "text": "Add Domain",
+            "fontPx": 14,
+            "time": 6.75,
+            "seconds": 1.25
+          },
+          {
+            "selector": "#scene-3 > div:nth-of-type(1) > div:nth-of-type(2) > span:nth-of-type(1)",
+            "text": "Deep Audit Engine Running",
+            "fontPx": 14,
+            "time": 8.125,
+            "seconds": 5.375
+          },
+          {
+            "selector": "#flaw-1 > div:nth-of-type(1) > p:nth-of-type(1)",
+            "text": "Insecure connection damages search ranking and customer trust.",
+            "fontPx": 14,
+            "time": 9.625,
+            "seconds": 3.875
+          },
+          {
+            "selector": "#flaw-2 > div:nth-of-type(1) > p:nth-of-type(1)",
+            "text": "Severe accessibility barrier impacting local Google search visibility.",
+            "fontPx": 14,
+            "time": 10.375,
+            "seconds": 3.125
+          },
+          {
+            "selector": "#flaw-3 > div:nth-of-type(1) > p:nth-of-type(1)",
+            "text": "Missing search snippet leads to poor click-through rates.",
+            "fontPx": 14,
+            "time": 11,
+            "seconds": 2.5
+          },
+          {
+            "selector": "#flaw-4 > div:nth-of-type(1) > p:nth-of-type(1)",
+            "text": "Thin text content on homepage fails basic search engine criteria.",
+            "fontPx": 14,
+            "time": 11.75,
+            "seconds": 1.75
+          },
+          {
+            "selector": "#scene-4 > div:nth-of-type(1) > div:nth-of-type(3) > span:nth-of-type(1)",
+            "text": "Auto-Generated CRM Leads",
+            "fontPx": 14,
+            "time": 13.625,
+            "seconds": 4.375
+          },
+          {
+            "selector": "#opp-card-1 > div:nth-of-type(2)",
+            "text": "Status: New Lead",
+            "fontPx": 14,
+            "time": 13.75,
+            "seconds": 4.25
+          },
+          {
+            "selector": "#opp-card-2 > div:nth-of-type(2)",
+            "text": "Status: Contacted",
+            "fontPx": 14,
+            "time": 14.375,
+            "seconds": 3.625
+          },
+          {
+            "selector": "#opp-card-3 > div:nth-of-type(2)",
+            "text": "Status: In Progress",
+            "fontPx": 14,
+            "time": 14.875,
+            "seconds": 3.125
+          },
+          {
+            "selector": "#opp-card-1 > div:nth-of-type(1) > p:nth-of-type(1)",
+            "text": "Prospect: Aura Boutique & Atelier • Insecure HTTP protocol detected. Pitch SSL installation & security compliance package.",
+            "fontPx": 15,
+            "time": 13.75,
+            "seconds": 4.25
+          },
+          {
+            "selector": "#opp-card-2 > div:nth-of-type(1) > p:nth-of-type(1)",
+            "text": "Prospect: Aura Boutique & Atelier • Product gallery unoptimized. Pitch image SEO and ADA accessibility compliance overhaul.",
+            "fontPx": 15,
+            "time": 14.375,
+            "seconds": 3.625
+          },
+          {
+            "selector": "#opp-card-3 > div:nth-of-type(1) > p:nth-of-type(1)",
+            "text": "Prospect: Aura Boutique & Atelier • Under 300 words on landing page. Pitch SEO copywriting & local Google optimization retainer.",
+            "fontPx": 15,
+            "time": 14.875,
+            "seconds": 3.125
+          },
+          {
+            "selector": "#scene-2 > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1)",
+            "text": "Dashboard",
+            "fontPx": 15.88,
+            "time": 3.625,
+            "seconds": 4.375
+          },
+          {
+            "selector": "#scene-2 > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2)",
+            "text": "Discover Leads",
+            "fontPx": 15.88,
+            "time": 3.625,
+            "seconds": 4.375
+          },
+          {
+            "selector": "#scene-2 > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3)",
+            "text": "Opportunities",
+            "fontPx": 15.88,
+            "time": 3.625,
+            "seconds": 4.375
+          },
+          {
+            "selector": "#input-category",
+            "text": "Boutique & Retail",
+            "fontPx": 15.88,
+            "time": 3.625,
+            "seconds": 4.375
+          },
+          {
+            "selector": "#input-location",
+            "text": "Chicago, IL",
+            "fontPx": 15.88,
+            "time": 3.625,
+            "seconds": 4.375
+          },
+          {
+            "selector": "#search-panel > div:nth-of-type(4) > div:nth-of-type(1)",
+            "text": "5,000 meters",
+            "fontPx": 15.88,
+            "time": 3.625,
+            "seconds": 4.375
+          },
+          {
+            "selector": "#hook-badge > span:nth-of-type(1)",
+            "text": "AI-Powered Opportunity Intelligence",
+            "fontPx": 16,
+            "time": 0.375,
+            "seconds": 3.125
+          },
+          {
+            "selector": "#score-box > div:nth-of-type(1)",
+            "text": "auraboutique.com • Website Health Audit",
+            "fontPx": 16,
+            "time": 8.125,
+            "seconds": 5.375
+          },
+          {
+            "selector": "#score-box > p:nth-of-type(1)",
+            "text": "Severe SEO and security vulnerabilities detected. Clear client conversion opportunity.",
+            "fontPx": 16,
+            "time": 8.125,
+            "seconds": 5.375
+          },
+          {
+            "selector": "#scene-4 > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1)",
+            "text": "Dashboard",
+            "fontPx": 16,
+            "time": 13.625,
+            "seconds": 4.375
+          },
+          {
+            "selector": "#scene-4 > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2)",
+            "text": "Discover Leads",
+            "fontPx": 16,
+            "time": 13.625,
+            "seconds": 4.375
+          },
+          {
+            "selector": "#scene-4 > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3)",
+            "text": "Opportunities Pipeline",
+            "fontPx": 16,
+            "time": 13.625,
+            "seconds": 4.375
+          },
+          {
+            "selector": "#discover-btn > span:nth-of-type(1)",
+            "text": "Discover Prospects",
+            "fontPx": 16.34,
+            "time": 3.625,
+            "seconds": 4.375
+          },
+          {
+            "selector": "#status-stamp",
+            "text": "Critical Health: Outdated",
+            "fontPx": 18,
+            "time": 9.25,
+            "seconds": 4.25
+          },
+          {
+            "selector": "#flaw-1 > div:nth-of-type(1) > h4:nth-of-type(1)",
+            "text": "Website does not use HTTPS",
+            "fontPx": 19,
+            "time": 9.625,
+            "seconds": 3.875
+          },
+          {
+            "selector": "#flaw-2 > div:nth-of-type(1) > h4:nth-of-type(1)",
+            "text": "14 images missing alt text",
+            "fontPx": 19,
+            "time": 10.375,
+            "seconds": 3.125
+          },
+          {
+            "selector": "#flaw-3 > div:nth-of-type(1) > h4:nth-of-type(1)",
+            "text": "Missing meta description",
+            "fontPx": 19,
+            "time": 11,
+            "seconds": 2.5
+          },
+          {
+            "selector": "#flaw-4 > div:nth-of-type(1) > h4:nth-of-type(1)",
+            "text": "Low content length (<300 words)",
+            "fontPx": 19,
+            "time": 11.75,
+            "seconds": 1.75
+          },
+          {
+            "selector": "div.finale-url",
+            "text": "AI-POWERED BUSINESS OPPORTUNITY INTELLIGENCE",
+            "fontPx": 19.28,
+            "time": 17.125,
+            "seconds": 0.875
+          },
+          {
+            "selector": "#search-panel > div:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "Prospect Search",
+            "fontPx": 19.85,
+            "time": 3.625,
+            "seconds": 4.375
+          },
+          {
+            "selector": "div.results-column > div:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "Discovered Prospects in Chicago",
+            "fontPx": 21.84,
+            "time": 3.625,
+            "seconds": 4.375
+          },
+          {
+            "selector": "#flaw-list > div:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "Identified Pitch Vulnerabilities",
+            "fontPx": 22,
+            "time": 8.125,
+            "seconds": 5.375
+          },
+          {
+            "selector": "#opp-card-1 > div:nth-of-type(1) > div:nth-of-type(1) > h3:nth-of-type(1)",
+            "text": "Website does not use HTTPS",
+            "fontPx": 22,
+            "time": 13.75,
+            "seconds": 4.25
+          },
+          {
+            "selector": "#opp-card-2 > div:nth-of-type(1) > div:nth-of-type(1) > h3:nth-of-type(1)",
+            "text": "14 Images Missing Alt Text",
+            "fontPx": 22,
+            "time": 14.375,
+            "seconds": 3.625
+          },
+          {
+            "selector": "#opp-card-3 > div:nth-of-type(1) > div:nth-of-type(1) > h3:nth-of-type(1)",
+            "text": "Missing Meta Description & Thin Content",
+            "fontPx": 22,
+            "time": 14.875,
+            "seconds": 3.125
+          },
+          {
+            "selector": "#biz-card-1 > div:nth-of-type(1) > h3:nth-of-type(1) > span:nth-of-type(1)",
+            "text": "Aura Boutique & Atelier",
+            "fontPx": 24,
+            "time": 5.5,
+            "seconds": 2.5
+          },
+          {
+            "selector": "#biz-card-2 > div:nth-of-type(1) > h3:nth-of-type(1) > span:nth-of-type(1)",
+            "text": "Luxe Velvet Studio",
+            "fontPx": 24,
+            "time": 6.125,
+            "seconds": 1.875
+          },
+          {
+            "selector": "#biz-card-3 > div:nth-of-type(1) > h3:nth-of-type(1) > span:nth-of-type(1)",
+            "text": "The Noble Haberdasher",
+            "fontPx": 24,
+            "time": 6.75,
+            "seconds": 1.25
+          },
+          {
+            "selector": "#opp-container > div:nth-of-type(1) > div:nth-of-type(1)",
+            "text": "Auto-Generated Client Pitch Opportunities",
+            "fontPx": 26,
+            "time": 13.625,
+            "seconds": 4.375
+          }
+        ]
+      },
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "The film's last line \"Prospect: Aura Boutique & Atelier • Under 300 words on la...\" (17 words) is on screen 3.17 s (±0.01 s), under the 4.20 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.",
+        "text": "Prospect: Aura Boutique & Atelier • Under 300 words on landing page. Pitch SEO copywriting & local Google optimization retainer.",
+        "selector": "#opp-card-3 > div:nth-of-type(1) > p:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 442.98,
+          "y": 554,
+          "width": 762.1100000000001,
+          "height": 36
+        },
+        "time": 14.836,
+        "words": 17,
+        "seconds": 3.168,
+        "floorSeconds": 4.2
+      },
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "The film's last line \"Prospect IQ\" (2 words) is on screen 1.67 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.",
+        "text": "Prospect IQ",
+        "selector": "h1.finale-title",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 721.87,
+          "y": 469.22,
+          "width": 476.2400000000001,
+          "height": 111.59000000000003
+        },
+        "time": 16.336,
+        "words": 2,
+        "seconds": 1.668,
+        "floorSeconds": 2
+      },
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "The film's last line \"Discover leads. Audit flaws. Close deals.\" (6 words) is on screen 1.27 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.",
+        "text": "Discover leads. Audit flaws. Close deals.",
+        "selector": "p.finale-tagline",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 642.34,
+          "y": 599.42,
+          "width": 635.32,
+          "height": 41
+        },
+        "time": 16.734,
+        "words": 6,
+        "seconds": 1.27,
+        "floorSeconds": 2
+      }
+    ],
+    "enabled": true,
+    "step": 0.125,
+    "samples": 144
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  }
+}

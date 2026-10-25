@@ -3,7 +3,14 @@ import requests
 
 
 NOMINATIM_URL = "https://nominatim.openstreetmap.org/search"
-OVERPASS_URL = "https://overpass-api.de/api/interpreter"
+
+# Multiple Overpass servers for reliability
+OVERPASS_URLS = [
+    "https://overpass-api.de/api/interpreter",
+    "https://overpass.kumi.systems/api/interpreter",
+    "https://overpass.private.coffee/api/interpreter",
+]
+
 
 CATEGORY_TAGS = {
     "boutique": ("shop", "clothes"),
@@ -55,6 +62,49 @@ def geocode_location(location: str):
     )
 
 
+def query_overpass(query: str):
+    """
+    Try multiple Overpass servers.
+    If one server times out or fails, try the next one.
+    """
+
+    last_error = None
+
+    for url in OVERPASS_URLS:
+        try:
+            print(f"Trying Overpass server: {url}")
+
+            response = requests.post(
+                url,
+                data=query,
+                headers={
+                    "User-Agent": "ProspectIQ/0.1"
+                },
+                timeout=90,
+            )
+
+            response.raise_for_status()
+
+            print("Overpass request successful.")
+
+            return response.json()
+
+        except requests.RequestException as error:
+            last_error = error
+
+            print(
+                f"Overpass server failed: {url}"
+            )
+            print(f"Error: {error}")
+
+            continue
+
+    raise RuntimeError(
+        "All Overpass servers failed. "
+        f"Last error: {last_error}"
+    )
+
+
 def discover_businesses(
     category: str,
     location: str,
@@ -73,7 +123,7 @@ def discover_businesses(
     latitude, longitude = geocode_location(location)
 
     query = f"""
-    [out:json][timeout:30];
+    [out:json][timeout:60];
 
     nwr
       ["{tag_key}"="{tag_value}"]
@@ -82,23 +132,13 @@ def discover_businesses(
     out center tags;
     """
 
-    response = requests.post(
-        OVERPASS_URL,
-        data=query,
-        headers={
-            "User-Agent": "ProspectIQ/0.1"
-        },
-        timeout=60,
-    )
-
-    response.raise_for_status()
-
-    data = response.json()
+    data = query_overpass(query)
 
     businesses = []
     seen = set()
 
     for element in data.get("elements", []):
+
         tags = element.get("tags", {})
         name = tags.get("name")
 
@@ -173,13 +213,16 @@ def discover_businesses(
 
 
 if __name__ == "__main__":
+
     results = discover_businesses(
         category="boutique",
         location="Raipur, Chhattisgarh",
         max_results=10,
     )
 
-    print(f"Found {len(results)} businesses.")
+    print(
+        f"Found {len(results)} businesses."
+    )
 
     for business in results:
         print(business)

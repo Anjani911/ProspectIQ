@@ -61,13 +61,6 @@ def database_health(db: Session = Depends(get_db)):
         "database": "connected",
         "result": result.scalar()
     }
-@app.get("/health")
-def health():
-    return {
-        "status": "healthy",
-        "service": "ProspectIQ API"
-    }
-
 
 @app.get("/health/stats")
 def health_stats(db: Session = Depends(get_db)):

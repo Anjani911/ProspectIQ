@@ -1,0 +1,1375 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>ProspectIQ — Launch Video</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      :root {
+        --ground: #f4f1ea;
+        --ground-dark: #17252c;
+        --ink: #0f172a;
+        --ink-light: #ffffff;
+        --ink-muted: #1e293b;
+        --card-bg: #fffdfa;
+        --border-color: #d9d5cc;
+        --border-dark: #31444c;
+        --terracotta: #c8643e;
+        --terracotta-light: #e4a58d;
+        --sage: #79b7a6;
+        --sage-dark: #0f766e;
+        --rose: #9f1239;
+        --font-display: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: var(--ground-dark);
+        font-family: var(--font-display);
+        color: var(--ink);
+        -webkit-font-smoothing: antialiased;
+      }
+
+      #root {
+        width: 1920px;
+        height: 1080px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .clip {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 1920px;
+        height: 1080px;
+      }
+
+      /* ==========================================
+         SCENE 1: THE HOOK
+         ========================================== */
+      #scene-1 {
+        background: radial-gradient(circle at 50% 40%, #223742 0%, #17252c 70%, #0e171c 100%);
+        color: var(--ink-light);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 0 160px;
+        z-index: 10;
+        isolation: isolate;
+      }
+
+      .hook-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        background: rgba(200, 100, 62, 0.22);
+        border: 1.5px solid rgba(228, 165, 141, 0.5);
+        border-radius: 9999px;
+        padding: 10px 24px;
+        font-size: 18px;
+        font-weight: 700;
+        color: #fca5a5;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 28px;
+      }
+
+      .hook-spark {
+        width: 20px;
+        height: 20px;
+        fill: #e4a58d;
+      }
+
+      .hook-title {
+        font-size: 96px;
+        font-weight: 800;
+        line-height: 1.05;
+        letter-spacing: -0.04em;
+        color: #ffffff;
+        max-width: 1300px;
+        opacity: 1; /* Frame 0 is already populated */
+      }
+
+      .hook-sub {
+        font-size: 34px;
+        font-weight: 600;
+        line-height: 1.4;
+        color: #e2ded6;
+        max-width: 1100px;
+        margin-top: 24px;
+      }
+
+      /* ==========================================
+         SHARED APP SHELL STYLES
+         ========================================== */
+      .app-canvas {
+        background: var(--ground);
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+      }
+
+      .top-nav {
+        height: 90px;
+        background: #17252c;
+        border-bottom: 2px solid var(--border-dark);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 56px;
+        color: #ffffff;
+      }
+
+      .brand-box {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .brand-spark {
+        width: 44px;
+        height: 44px;
+        background: var(--terracotta);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .brand-spark svg {
+        width: 24px;
+        height: 24px;
+        fill: #ffffff;
+      }
+
+      .brand-name {
+        font-size: 32px;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        color: #ffffff;
+      }
+
+      .brand-name span {
+        color: var(--terracotta-light);
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+      }
+
+      .nav-item {
+        font-size: 18px;
+        font-weight: 600;
+        color: #cbd5e1;
+        padding: 8px 18px;
+        border-radius: 8px;
+      }
+
+      .nav-item.active {
+        background: #263941;
+        color: var(--terracotta-light);
+        border-left: 3px solid var(--terracotta);
+      }
+
+      .sys-indicator {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background: #263941;
+        border: 1px solid var(--border-dark);
+        padding: 8px 18px;
+        border-radius: 8px;
+        font-size: 15px;
+        font-weight: 600;
+        color: #f1f5f9;
+      }
+
+      .sys-dot {
+        width: 10px;
+        height: 10px;
+        background: var(--sage);
+        border-radius: 50%;
+        box-shadow: 0 0 10px var(--sage);
+      }
+
+      .main-body {
+        flex: 1;
+        padding: 40px 56px;
+        display: grid;
+        grid-template-columns: 460px 1fr;
+        gap: 36px;
+      }
+
+      .panel {
+        background: var(--card-bg);
+        border: 1.5px solid var(--border-color);
+        border-radius: 8px;
+        padding: 32px;
+        box-shadow: 0 4px 18px rgba(23, 37, 44, 0.05);
+      }
+
+      .panel-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 22px;
+        padding-bottom: 14px;
+        border-bottom: 1.5px solid #eae5db;
+      }
+
+      .panel-title {
+        font-size: 28px;
+        font-weight: 800;
+        color: var(--ink);
+      }
+
+      .panel-tag {
+        background: #f4f1ea;
+        border: 1px solid var(--border-color);
+        color: #0f172a;
+        font-size: 13px;
+        font-weight: 700;
+        text-transform: uppercase;
+        padding: 4px 10px;
+        border-radius: 4px;
+      }
+
+      .field-group {
+        margin-bottom: 18px;
+      }
+
+      .field-label {
+        font-size: 14px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: #1e293b;
+        margin-bottom: 8px;
+        display: block;
+      }
+
+      .input-box {
+        width: 100%;
+        background: #ffffff;
+        border: 1.5px solid var(--border-color);
+        border-radius: 6px;
+        padding: 12px 16px;
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--ink);
+      }
+
+      .action-btn {
+        width: 100%;
+        background: #2563eb;
+        border: none;
+        border-radius: 6px;
+        padding: 16px;
+        font-size: 18px;
+        font-weight: 700;
+        color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 24px;
+        box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
+      }
+
+      .results-column {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+      }
+
+      .biz-card {
+        background: var(--card-bg);
+        border: 1.5px solid var(--border-color);
+        border-radius: 8px;
+        padding: 24px 28px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: 0 3px 12px rgba(23, 37, 44, 0.04);
+      }
+
+      .biz-card.highlight {
+        border-color: #2563eb;
+        background: #ffffff;
+        box-shadow: 0 8px 28px rgba(37, 99, 235, 0.12);
+      }
+
+      .biz-info h3 {
+        font-size: 28px;
+        font-weight: 800;
+        color: var(--ink);
+        margin-bottom: 6px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .cat-pill {
+        background: #e2e8f0;
+        color: #0f172a;
+        font-size: 14px;
+        font-weight: 700;
+        padding: 3px 10px;
+        border-radius: 4px;
+        text-transform: uppercase;
+      }
+
+      .biz-meta {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        font-size: 16px;
+        font-weight: 700;
+        color: #1e293b;
+      }
+
+      .biz-url {
+        color: #1d4ed8;
+        font-weight: 700;
+      }
+
+      .audit-btn {
+        background: var(--sage-dark);
+        border: none;
+        border-radius: 6px;
+        padding: 12px 22px;
+        color: #ffffff;
+        font-size: 16px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        box-shadow: 0 3px 10px rgba(15, 118, 110, 0.2);
+      }
+
+      /* ==========================================
+         SCENE 3: DEEP AUDIT SCREEN
+         ========================================== */
+      .audit-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 36px;
+        height: 100%;
+      }
+
+      .score-box {
+        background: #ffffff;
+        border: 2px solid #cbd5e1;
+        border-radius: 12px;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        box-shadow: 0 10px 32px rgba(23, 37, 44, 0.07);
+      }
+
+      .score-circle {
+        width: 210px;
+        height: 210px;
+        border-radius: 50%;
+        background: #ffe4e6;
+        border: 6px solid #be123c;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 24px;
+        box-shadow: 0 8px 24px rgba(190, 18, 60, 0.15);
+      }
+
+      .score-num {
+        font-size: 78px;
+        font-weight: 800;
+        line-height: 1;
+        color: #881337;
+        letter-spacing: -0.04em;
+      }
+
+      .score-label {
+        font-size: 16px;
+        font-weight: 800;
+        text-transform: uppercase;
+        color: #881337;
+        margin-top: 4px;
+      }
+
+      .status-stamp {
+        display: inline-block;
+        background: #9f1239;
+        color: #ffffff;
+        font-size: 20px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        padding: 10px 26px;
+        border-radius: 6px;
+        text-transform: uppercase;
+        transform: rotate(-3deg);
+      }
+
+      .flaw-list {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .flaw-item {
+        background: #ffffff;
+        border: 1.5px solid var(--border-color);
+        border-left: 6px solid #be123c;
+        border-radius: 8px;
+        padding: 20px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: 0 4px 14px rgba(23, 37, 44, 0.04);
+      }
+
+      .flaw-info h4 {
+        font-size: 22px;
+        font-weight: 800;
+        color: var(--ink);
+        margin-bottom: 4px;
+      }
+
+      .flaw-info p {
+        font-size: 16px;
+        color: #1e293b;
+        font-weight: 600;
+      }
+
+      .flaw-badge {
+        background: #ffe4e6;
+        color: #881337;
+        border: 1px solid #fecdd3;
+        font-size: 14px;
+        font-weight: 800;
+        text-transform: uppercase;
+        padding: 6px 14px;
+        border-radius: 4px;
+      }
+
+      /* ==========================================
+         SCENE 4: OPPORTUNITIES SCREEN
+         ========================================== */
+      .opp-container {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .opp-card {
+        background: #ffffff;
+        border: 1.5px solid var(--border-color);
+        border-radius: 10px;
+        padding: 28px 36px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: 0 4px 20px rgba(23, 37, 44, 0.05);
+      }
+
+      .opp-header {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 8px;
+      }
+
+      .opp-title {
+        font-size: 28px;
+        font-weight: 800;
+        color: var(--ink);
+      }
+
+      .opp-desc {
+        font-size: 18px;
+        color: #1e293b;
+        font-weight: 600;
+        max-width: 850px;
+      }
+
+      .priority-badge-high {
+        background: #ffe4e6;
+        color: #881337;
+        border: 1px solid #fecdd3;
+        font-size: 14px;
+        font-weight: 800;
+        text-transform: uppercase;
+        padding: 6px 16px;
+        border-radius: 9999px;
+      }
+
+      .priority-badge-med {
+        background: #fef3c7;
+        color: #78350f;
+        border: 1px solid #fde68a;
+        font-size: 14px;
+        font-weight: 800;
+        text-transform: uppercase;
+        padding: 6px 16px;
+        border-radius: 9999px;
+      }
+
+      .status-select {
+        background: #f8fafc;
+        border: 2px solid #cbd5e1;
+        border-radius: 6px;
+        padding: 10px 18px;
+        font-size: 16px;
+        font-weight: 700;
+        color: #0f172a;
+      }
+
+      /* ==========================================
+         SCENE 5: FINALE SLAM
+         ========================================== */
+      #scene-5 {
+        background: #17252c;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: #ffffff;
+        text-align: center;
+        z-index: 40;
+      }
+
+      .finale-spark {
+        width: 100px;
+        height: 100px;
+        background: var(--terracotta);
+        border-radius: 22px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 28px;
+        box-shadow: 0 12px 36px rgba(200, 100, 62, 0.4);
+      }
+
+      .finale-spark svg {
+        width: 54px;
+        height: 54px;
+        fill: #ffffff;
+      }
+
+      .finale-title {
+        font-size: 108px;
+        font-weight: 800;
+        letter-spacing: -0.04em;
+        line-height: 1;
+        margin-bottom: 20px;
+        color: #ffffff;
+      }
+
+      .finale-title span {
+        color: var(--terracotta-light);
+      }
+
+      .finale-tagline {
+        font-size: 38px;
+        font-weight: 600;
+        color: #e2ded6;
+        margin-bottom: 36px;
+        letter-spacing: -0.01em;
+      }
+
+      .finale-url {
+        background: rgba(255, 255, 255, 0.12);
+        border: 1.5px solid rgba(255, 255, 255, 0.3);
+        padding: 14px 36px;
+        border-radius: 9999px;
+        font-size: 22px;
+        font-weight: 700;
+        color: #ffffff;
+        letter-spacing: 0.05em;
+      }
+
+      /* Pointer cursor simulation */
+      .fake-cursor {
+        position: absolute;
+        width: 32px;
+        height: 32px;
+        pointer-events: none;
+        z-index: 100;
+        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="19"
+      data-width="1920"
+      data-height="1080"
+    >
+      <!-- Audio Tracks -->
+      <audio
+        id="bg-music"
+        data-start="0"
+        data-duration="19"
+        data-track-index="10"
+        data-volume="1"
+        src="assets/music/happy-beats-business-moves-vol-12-by-ende-dot-app.mp3"
+      ></audio>
+
+      <audio
+        id="sfx-search"
+        data-start="4.8"
+        data-duration="0.09"
+        data-track-index="11"
+        data-volume="0.75"
+        src="assets/sfx/ui/click1.ogg"
+      ></audio>
+
+      <audio
+        id="sfx-card-1"
+        data-start="5.34"
+        data-duration="0.35"
+        data-track-index="12"
+        data-volume="0.65"
+        src="assets/sfx/casino/card-slide-1.ogg"
+      ></audio>
+
+      <audio
+        id="sfx-audit-click"
+        data-start="8.2"
+        data-duration="0.1"
+        data-track-index="13"
+        data-volume="0.75"
+        src="assets/sfx/interface/click_001.ogg"
+      ></audio>
+
+      <audio
+        id="sfx-score"
+        data-start="8.74"
+        data-duration="0.18"
+        data-track-index="14"
+        data-volume="0.8"
+        src="assets/sfx/impact/impactSoft_medium_001.ogg"
+      ></audio>
+
+      <audio
+        id="sfx-opp"
+        data-start="13.64"
+        data-duration="0.11"
+        data-track-index="15"
+        data-volume="0.7"
+        src="assets/sfx/interface/drop_001.ogg"
+      ></audio>
+
+      <audio
+        id="sfx-bell"
+        data-start="16.5"
+        data-duration="1.5"
+        data-track-index="16"
+        data-volume="0.85"
+        src="assets/sfx/impact/impactBell_heavy_000.ogg"
+      ></audio>
+
+      <!-- Simulated Pointer Cursor -->
+      <svg
+        id="cursor"
+        class="fake-cursor"
+        viewBox="0 0 24 24"
+        style="opacity: 0; left: 300px; top: 600px"
+        data-layout-ignore="true"
+      >
+        <path
+          fill="#17252c"
+          stroke="#ffffff"
+          stroke-width="1.5"
+          d="M4.5 3.5l14 7-6.5 2-2 6.5-5.5-15.5z"
+        />
+      </svg>
+
+      <!-- SCENE 1: The Hook (0.00s - 3.50s) -->
+      <div id="scene-1" class="clip" data-start="0" data-duration="3.5" data-track-index="0">
+        <div class="hook-badge" id="hook-badge" data-layout-ignore="true">
+          <svg class="hook-spark" viewBox="0 0 24 24">
+            <path
+              d="M12 2l2.4 6.8L21.2 12l-6.8 2.4L12 21.2l-2.4-6.8L2.8 12l6.8-2.4L12 2z"
+            />
+          </svg>
+          <span>AI Opportunity Intelligence</span>
+        </div>
+        <h1 class="hook-title" id="hook-title">Agencies pitch blind.</h1>
+        <p class="hook-sub" id="hook-sub">
+          Audit website flaws. Close high-ticket clients.
+        </p>
+      </div>
+
+      <!-- SCENE 2: Discovery in Action (3.50s - 8.00s) -->
+      <div
+        id="scene-2"
+        class="clip app-canvas"
+        data-start="3.5"
+        data-duration="4.5"
+        data-track-index="1"
+      >
+        <div class="top-nav" data-layout-ignore="true">
+          <div class="brand-box">
+            <div class="brand-spark">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 2l2.4 6.8L21.2 12l-6.8 2.4L12 21.2l-2.4-6.8L2.8 12l6.8-2.4L12 2z"
+                />
+              </svg>
+            </div>
+            <div class="brand-name">Prospect<span>IQ</span></div>
+          </div>
+          <div class="nav-links">
+            <div class="nav-item">Dashboard</div>
+            <div class="nav-item active">Discover Leads</div>
+            <div class="nav-item">Opportunities</div>
+          </div>
+          <div class="sys-indicator">
+            <div class="sys-dot"></div>
+            <span>Workspace Active</span>
+          </div>
+        </div>
+
+        <div class="main-body">
+          <div class="panel" id="search-panel">
+            <div class="panel-header">
+              <div class="panel-title">Prospect Search</div>
+              <div class="panel-tag" data-layout-ignore="true">Scanner</div>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" data-layout-ignore="true">Category</label>
+              <div class="input-box" data-layout-ignore="true">Boutique & Retail</div>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" data-layout-ignore="true">Location</label>
+              <div class="input-box" data-layout-ignore="true">Chicago, IL</div>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" data-layout-ignore="true">Radius</label>
+              <div class="input-box" data-layout-ignore="true">5,000 meters</div>
+            </div>
+
+            <button class="action-btn" id="discover-btn" data-layout-ignore="true">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+              >
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <span>Discover Prospects</span>
+            </button>
+          </div>
+
+          <div class="results-column">
+            <div
+              class="panel-header"
+              style="padding-bottom: 8px; margin-bottom: 4px; border: none"
+            >
+              <div class="panel-title">Discovered Prospects in Chicago</div>
+              <div
+                class="panel-tag"
+                style="background: #2563eb; color: #ffffff; border: none"
+                data-layout-ignore="true"
+              >
+                3 Live Leads
+              </div>
+            </div>
+
+            <!-- Card 1 -->
+            <div class="biz-card highlight" id="biz-card-1">
+              <div class="biz-info">
+                <h3>
+                  <span>Aura Boutique & Atelier</span>
+                  <span class="cat-pill" data-layout-ignore="true">Boutique</span>
+                </h3>
+                <div class="biz-meta" data-layout-ignore="true">
+                  <span>Chicago, IL</span>
+                  <span>•</span>
+                  <span class="biz-url">auraboutique.com</span>
+                </div>
+              </div>
+              <button class="audit-btn" id="audit-btn-1" data-layout-ignore="true">
+                <span>Analyze Website</span>
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                >
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </button>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="biz-card" id="biz-card-2">
+              <div class="biz-info">
+                <h3>
+                  <span>Luxe Velvet Studio</span>
+                  <span class="cat-pill" data-layout-ignore="true">Fashion</span>
+                </h3>
+                <div class="biz-meta" data-layout-ignore="true">
+                  <span>Chicago, IL</span>
+                  <span>•</span>
+                  <span class="biz-url">chicago-velvet.com</span>
+                </div>
+              </div>
+              <button
+                class="audit-btn"
+                style="background: #475569"
+                data-layout-ignore="true"
+              >
+                <span>Analyze Website</span>
+              </button>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="biz-card" id="biz-card-3">
+              <div class="biz-info">
+                <h3>
+                  <span>The Noble Haberdasher</span>
+                  <span class="cat-pill" data-layout-ignore="true">Retail</span>
+                </h3>
+                <div class="biz-meta" data-layout-ignore="true">
+                  <span>Chicago, IL</span>
+                  <span>•</span>
+                  <span style="color: #64748b; font-style: italic"
+                    >No website detected</span
+                  >
+                </div>
+              </div>
+              <button
+                class="audit-btn"
+                style="background: #475569"
+                data-layout-ignore="true"
+              >
+                <span>Add Domain</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SCENE 3: Deep Website Audit & Score (8.00s - 13.00s) -->
+      <div
+        id="scene-3"
+        class="clip app-canvas"
+        data-start="8"
+        data-duration="5"
+        data-track-index="2"
+      >
+        <div class="top-nav" data-layout-ignore="true">
+          <div class="brand-box">
+            <div class="brand-spark">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 2l2.4 6.8L21.2 12l-6.8 2.4L12 21.2l-2.4-6.8L2.8 12l6.8-2.4L12 2z"
+                />
+              </svg>
+            </div>
+            <div class="brand-name">Prospect<span>IQ</span></div>
+          </div>
+          <div class="sys-indicator">
+            <div
+              class="sys-dot"
+              style="background: #f59e0b; box-shadow: 0 0 10px #f59e0b"
+            ></div>
+            <span>Deep Audit Engine Running</span>
+          </div>
+        </div>
+
+        <div class="main-body" style="grid-template-columns: 1fr">
+          <div class="audit-grid">
+            <!-- Score Overview Box -->
+            <div class="score-box" id="score-box">
+              <div
+                style="
+                  font-size: 18px;
+                  font-weight: 700;
+                  text-transform: uppercase;
+                  letter-spacing: 0.08em;
+                  color: #0f172a;
+                  margin-bottom: 24px;
+                "
+                data-layout-ignore="true"
+              >
+                auraboutique.com • Website Health Audit
+              </div>
+
+              <div class="score-circle" id="score-circle">
+                <div class="score-num">42</div>
+                <div class="score-label" data-layout-ignore="true">Score / 100</div>
+              </div>
+
+              <div class="status-stamp" id="status-stamp" data-layout-ignore="true">
+                Critical Health: Outdated
+              </div>
+
+              <p
+                style="
+                  margin-top: 24px;
+                  font-size: 20px;
+                  font-weight: 700;
+                  color: #0f172a;
+                  max-width: 440px;
+                "
+              >
+                Severe SEO and security vulnerabilities detected. Clear client conversion opportunity.
+              </p>
+            </div>
+
+            <!-- Identified Flaws List -->
+            <div class="flaw-list" id="flaw-list">
+              <div class="panel-header" style="margin-bottom: 8px">
+                <div class="panel-title">Identified Pitch Vulnerabilities</div>
+                <div
+                  class="panel-tag"
+                  style="background: #ffe4e6; color: #881337"
+                  data-layout-ignore="true"
+                >
+                  4 High Impact
+                </div>
+              </div>
+
+              <!-- Flaw 1 -->
+              <div class="flaw-item" id="flaw-1">
+                <div class="flaw-info">
+                  <h4>Website does not use HTTPS</h4>
+                  <p>Insecure connection damages search ranking and customer trust.</p>
+                </div>
+                <span class="flaw-badge" data-layout-ignore="true">High Priority</span>
+              </div>
+
+              <!-- Flaw 2 -->
+              <div class="flaw-item" id="flaw-2">
+                <div class="flaw-info">
+                  <h4>14 images missing alt text</h4>
+                  <p>Accessibility barrier impacting local Google search visibility.</p>
+                </div>
+                <span class="flaw-badge" data-layout-ignore="true">Medium Priority</span>
+              </div>
+
+              <!-- Flaw 3 -->
+              <div class="flaw-item" id="flaw-3">
+                <div class="flaw-info">
+                  <h4>Missing meta description</h4>
+                  <p>Missing search snippet leads to poor click-through rates.</p>
+                </div>
+                <span class="flaw-badge" data-layout-ignore="true">Medium Priority</span>
+              </div>
+
+              <!-- Flaw 4 -->
+              <div class="flaw-item" id="flaw-4">
+                <div class="flaw-info">
+                  <h4>Low content length (&lt;300 words)</h4>
+                  <p>Thin text content on homepage fails search engine criteria.</p>
+                </div>
+                <span class="flaw-badge" data-layout-ignore="true">Content Deficit</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SCENE 4: Actionable Opportunity Engine (13.00s - 15.50s) -->
+      <div
+        id="scene-4"
+        class="clip app-canvas"
+        data-start="13"
+        data-duration="2.5"
+        data-track-index="3"
+      >
+        <div class="top-nav" data-layout-ignore="true">
+          <div class="brand-box">
+            <div class="brand-spark">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 2l2.4 6.8L21.2 12l-6.8 2.4L12 21.2l-2.4-6.8L2.8 12l6.8-2.4L12 2z"
+                />
+              </svg>
+            </div>
+            <div class="brand-name">Prospect<span>IQ</span></div>
+          </div>
+          <div class="nav-links">
+            <div class="nav-item">Dashboard</div>
+            <div class="nav-item">Discover Leads</div>
+            <div class="nav-item active">Opportunities Pipeline</div>
+          </div>
+          <div class="sys-indicator">
+            <div class="sys-dot"></div>
+            <span>CRM Pipeline</span>
+          </div>
+        </div>
+
+        <div class="main-body" style="grid-template-columns: 1fr">
+          <div class="opp-container" id="opp-container">
+            <div
+              class="panel-header"
+              style="padding-bottom: 8px; margin-bottom: 8px; border: none"
+            >
+              <div class="panel-title" style="font-size: 32px">
+                Auto-Generated Client Pitch Opportunities
+              </div>
+              <div
+                class="panel-tag"
+                style="background: #0f766e; color: #ffffff; border: none; font-size: 14px"
+                data-layout-ignore="true"
+              >
+                Ready for Outreach
+              </div>
+            </div>
+
+            <!-- Opp 1 -->
+            <div class="opp-card" id="opp-card-1">
+              <div>
+                <div class="opp-header">
+                  <span class="priority-badge-high" data-layout-ignore="true">High Priority</span>
+                  <h3 class="opp-title">Website does not use HTTPS</h3>
+                </div>
+                <p class="opp-desc">
+                  Prospect: Aura Boutique & Atelier • Insecure HTTP protocol detected. Pitch SSL security compliance.
+                </p>
+              </div>
+              <div class="status-select" data-layout-ignore="true">Status: New Lead</div>
+            </div>
+
+            <!-- Opp 2 -->
+            <div class="opp-card" id="opp-card-2">
+              <div>
+                <div class="opp-header">
+                  <span class="priority-badge-med" data-layout-ignore="true">Medium Priority</span>
+                  <h3 class="opp-title">14 Images Missing Alt Text</h3>
+                </div>
+                <p class="opp-desc">
+                  Prospect: Aura Boutique & Atelier • Product gallery unoptimized. Pitch image SEO and ADA overhaul.
+                </p>
+              </div>
+              <div class="status-select" style="color: #78350f" data-layout-ignore="true">Status: Contacted</div>
+            </div>
+
+            <!-- Opp 3 -->
+            <div class="opp-card" id="opp-card-3">
+              <div>
+                <div class="opp-header">
+                  <span class="priority-badge-med" data-layout-ignore="true">Medium Priority</span>
+                  <h3 class="opp-title">Missing Meta Description & Thin Content</h3>
+                </div>
+                <p class="opp-desc">
+                  Prospect: Aura Boutique & Atelier • Under 300 words on landing page. Pitch SEO copywriting retainer.
+                </p>
+              </div>
+              <div class="status-select" style="color: #0f766e" data-layout-ignore="true">Status: In Progress</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SCENE 5: Finale Brand Slam (15.50s - 19.00s) -->
+      <div
+        id="scene-5"
+        class="clip"
+        data-start="15.5"
+        data-duration="3.5"
+        data-track-index="4"
+      >
+        <div class="finale-spark" id="finale-spark">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M12 2l2.4 6.8L21.2 12l-6.8 2.4L12 21.2l-2.4-6.8L2.8 12l6.8-2.4L12 2z"
+            />
+          </svg>
+        </div>
+        <h1 class="finale-title">Prospect<span>IQ</span></h1>
+        <p class="finale-tagline">
+          Discover leads. Audit flaws. Close deals.
+        </p>
+        <div class="finale-url">
+          AI-POWERED BUSINESS OPPORTUNITY INTELLIGENCE
+        </div>
+      </div>
+    </div>
+
+    <!-- GSAP Master Animation Timeline -->
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      // Music Volume Track
+      tl.fromTo("#bg-music", { volume: 0.35 }, { volume: 0.35, duration: 17.5 }, 0);
+      tl.to("#bg-music", { volume: 0, duration: 1.5, ease: "power1.out" }, 17.5);
+
+      // ==========================================
+      // SCENE 1: THE HOOK (0.00s - 3.50s)
+      // ==========================================
+      // Frame 0 has title visible; animate badge and sub-hook
+      tl.fromTo(
+        "#hook-badge",
+        { opacity: 0, y: -20 },
+        { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" },
+        0.1
+      );
+
+      tl.fromTo(
+        "#hook-sub",
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" },
+        0.7
+      );
+
+      // Scene 1 Out
+      tl.to(
+        "#scene-1",
+        { opacity: 0, duration: 0.3, ease: "power2.inOut" },
+        3.3
+      );
+
+      // ==========================================
+      // SCENE 2: DISCOVERY (3.50s - 8.00s)
+      // ==========================================
+      tl.fromTo(
+        "#scene-2",
+        { opacity: 0, scale: 0.98 },
+        { opacity: 1, scale: 1, duration: 0.3, ease: "power2.out" },
+        3.5
+      );
+
+      // Cursor moves to Discover button
+      tl.fromTo(
+        "#cursor",
+        { opacity: 0, x: 200, y: 700 },
+        { opacity: 1, x: 300, y: 560, duration: 0.6, ease: "power2.out" },
+        3.8
+      );
+
+      // Button Click
+      tl.to(
+        "#discover-btn",
+        { scale: 0.95, duration: 0.1, yoyo: true, repeat: 1, ease: "power1.inOut" },
+        4.8
+      );
+
+      // Cards arrive on beat grid: 5.34s, 6.00s, 6.56s
+      tl.fromTo(
+        "#biz-card-1",
+        { opacity: 0, x: 80 },
+        { opacity: 1, x: 0, duration: 0.45, ease: "back.out(1.4)" },
+        5.34
+      );
+
+      tl.fromTo(
+        "#biz-card-2",
+        { opacity: 0, x: 80 },
+        { opacity: 1, x: 0, duration: 0.45, ease: "back.out(1.4)" },
+        6.0
+      );
+
+      tl.fromTo(
+        "#biz-card-3",
+        { opacity: 0, x: 80 },
+        { opacity: 1, x: 0, duration: 0.45, ease: "back.out(1.4)" },
+        6.56
+      );
+
+      // Cursor moves to "Analyze Website" button on Card 1
+      tl.to(
+        "#cursor",
+        { x: 1720, y: 260, duration: 0.6, ease: "power2.inOut" },
+        7.1
+      );
+
+      // Scene 2 Out
+      tl.to(
+        "#scene-2",
+        { opacity: 0, duration: 0.25, ease: "power2.in" },
+        7.85
+      );
+
+      // ==========================================
+      // SCENE 3: DEEP AUDIT & SCORE (8.00s - 13.00s)
+      // ==========================================
+      tl.fromTo(
+        "#scene-3",
+        { opacity: 0, scale: 1.02 },
+        { opacity: 1, scale: 1, duration: 0.3, ease: "power2.out" },
+        8.0
+      );
+
+      // Click on Analyze button
+      tl.to(
+        "#cursor",
+        { scale: 0.85, duration: 0.1, yoyo: true, repeat: 1 },
+        8.2
+      );
+
+      // Cursor fades out
+      tl.to("#cursor", { opacity: 0, duration: 0.15 }, 8.4);
+
+      // beat-locked: Score circle slams in at 8.74s
+      tl.fromTo(
+        "#score-circle",
+        { scale: 0.4, opacity: 0, rotation: -20 },
+        { scale: 1, opacity: 1, rotation: 0, duration: 0.5, ease: "back.out(1.7)" },
+        8.74
+      );
+
+      tl.fromTo(
+        "#status-stamp",
+        { scale: 1.8, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 0.35, ease: "power4.out" },
+        9.1
+      );
+
+      // Flaws pop in sequentially
+      tl.fromTo(
+        "#flaw-1",
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.35, ease: "power2.out" },
+        9.4
+      );
+
+      tl.fromTo(
+        "#flaw-2",
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.35, ease: "power2.out" },
+        9.9
+      );
+
+      tl.fromTo(
+        "#flaw-3",
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.35, ease: "power2.out" },
+        10.4
+      );
+
+      tl.fromTo(
+        "#flaw-4",
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.35, ease: "power2.out" },
+        10.9
+      );
+
+      // Scene 3 Out
+      tl.to(
+        "#scene-3",
+        { opacity: 0, duration: 0.3, ease: "power2.inOut" },
+        12.85
+      );
+
+      // ==========================================
+      // SCENE 4: OPPORTUNITIES (13.00s - 15.50s)
+      // ==========================================
+      tl.fromTo(
+        "#scene-4",
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" },
+        13.0
+      );
+
+      // Opportunities cascade in on beats
+      tl.fromTo(
+        "#opp-card-1",
+        { opacity: 0, x: -40 },
+        { opacity: 1, x: 0, duration: 0.35, ease: "back.out(1.3)" },
+        13.4
+      );
+
+      tl.fromTo(
+        "#opp-card-2",
+        { opacity: 0, x: -40 },
+        { opacity: 1, x: 0, duration: 0.35, ease: "back.out(1.3)" },
+        13.85
+      );
+
+      tl.fromTo(
+        "#opp-card-3",
+        { opacity: 0, x: -40 },
+        { opacity: 1, x: 0, duration: 0.35, ease: "back.out(1.3)" },
+        14.3
+      );
+
+      // Scene 4 Out
+      tl.to(
+        "#scene-4",
+        { opacity: 0, duration: 0.25, ease: "power2.in" },
+        15.35
+      );
+
+      // ==========================================
+      // SCENE 5: FINALE SLAM (15.50s - 19.00s)
+      // ==========================================
+      tl.fromTo(
+        "#scene-5",
+        { opacity: 0 },
+        { opacity: 1, duration: 0.4, ease: "power3.out" },
+        15.5
+      );
+
+      tl.fromTo(
+        "#finale-spark",
+        { scale: 0.2, rotation: -45, opacity: 0 },
+        { scale: 1, rotation: 0, opacity: 1, duration: 0.5, ease: "back.out(1.8)" },
+        15.7
+      );
+
+      tl.fromTo(
+        ".finale-title",
+        { scale: 0.9, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 0.45, ease: "power2.out" },
+        16.0
+      );
+
+      tl.fromTo(
+        ".finale-tagline",
+        { opacity: 0, y: 15 },
+        { opacity: 1, y: 0, duration: 0.45, ease: "power2.out" },
+        16.3
+      );
+
+      tl.fromTo(
+        ".finale-url",
+        { opacity: 0, scale: 0.9 },
+        { opacity: 1, scale: 1, duration: 0.45, ease: "back.out(1.2)" },
+        16.6
+      );
+
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>
